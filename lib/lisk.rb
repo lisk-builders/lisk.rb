@@ -1,11 +1,7 @@
-#!/usr/bin/env ruby
+require "lisk/version"
 
-class Lisk
-
+module Lisk
   def self.debug
-
     puts "Debugging..."
-
   end
-
 end
