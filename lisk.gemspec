@@ -1,14 +1,27 @@
-Gem::Specification.new do | lisk |
-  lisk.authors       = ["4ryn Dings"]
-  lisk.date          = '2017-08-29'
+# coding: utf-8
+lib = File.expand_path("../lib", __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require "lisk/version"
+
+Gem::Specification.new do |lisk|
+  lisk.name          = "lisk.rb"
+  lisk.version       = Lisk::VERSION
+  lisk.authors       = ["4fryn Dings"]
+  lisk.email         = ["ruby@4fry.net"]
+
   lisk.description   = 'A Ruby wrapper for the Lisk blockchain platform API.'
-  lisk.email         = 'ruby@4fry.net'
-  lisk.files         = ["lib/lisk.rb"]
   lisk.homepage      = 'https://github.com/4fryn/lisk.rb'
-  lisk.license       = 'GPL-3.0'
-  lisk.name          = 'lisk'
-  lisk.platform      = Gem::Platform::CURRENT
-  lisk.require_paths = ["."]
   lisk.summary       = 'Lisk API Ruby wrapper.'
-  lisk.version       = '0.0.1'
+  lisk.license       = "MIT"
+
+  lisk.files         = `git ls-files -z`.split("\x0").reject do |f|
+    f.match(%r{^(test|spec|features)/})
+  end
+  lisk.bindir        = "exe"
+  lisk.executables   = lisk.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  lisk.require_paths = ["lib"]
+
+  lisk.add_development_dependency "bundler", "~> 1.15"
+  lisk.add_development_dependency "rake", "~> 10.0"
+  lisk.add_development_dependency "rspec", "~> 3.0"
 end
