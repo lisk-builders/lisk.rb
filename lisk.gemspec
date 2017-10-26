@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "lisk/version"
 
 Gem::Specification.new do |lisk|
-  lisk.name          = "lisk.rb"
+  lisk.name          = "lisk"
   lisk.version       = Lisk::VERSION
   lisk.authors       = ["4fryn Dings"]
   lisk.email         = ["ruby@4fry.net"]
@@ -19,9 +19,11 @@ Gem::Specification.new do |lisk|
   end
   lisk.bindir        = "exe"
   lisk.executables   = lisk.files.grep(%r{^exe/}) { |f| File.basename(f) }
-  lisk.require_paths = ["lib"]
+  lisk.require_paths = ["lib", "bin"]
 
   lisk.add_development_dependency "bundler", "~> 1.15"
   lisk.add_development_dependency "rake", "~> 10.0"
   lisk.add_development_dependency "rspec", "~> 3.0"
+
+  lisk.add_dependency "todonotes", "~> 0.2.2"
 end
