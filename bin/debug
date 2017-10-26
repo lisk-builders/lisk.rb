@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+echo $PWD
+
+gem uninstall lisk
+rm pkg/*.gem
+git add -A
+bundle exec rake install
+ruby example.rb
