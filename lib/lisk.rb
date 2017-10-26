@@ -3,12 +3,9 @@ require "todonotes"
 
 module Lisk
   require "lisk/client"
-  require "lisk/account"
-  require "lisk/block"
-  require "lisk/delegate"
-  require "lisk/transaction"
 
+  # Unimplemented methods
   def self.method_missing
-    todo "#{self}::#{__method__} NOT IMPLEMENTED"
+    todo "#{self}::#{__method__} METHOD MISSING"
   end
 end
