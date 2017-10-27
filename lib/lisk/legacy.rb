@@ -4,10 +4,16 @@ module Lisk
   # Implements legacy APIs of the Lisk Core pre-1.0.0 node
   class Legacy
 
+    # A "lisk/client" connecting to a Lisk Core API node.
     attr_accessor :client
 
     def initialize client
-      @client = client
+      if not client.nil?
+        @client = client
+        return self
+      else
+        return nil
+      end
     end
 
     # Get the status of last received block.

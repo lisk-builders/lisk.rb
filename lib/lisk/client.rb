@@ -16,6 +16,7 @@ module Lisk
       @host = host
       @port = port
       @ssl = false
+      return self
     end
 
     # Allows reconfiguring of the Lisk HTTP client's host and port.
@@ -24,6 +25,9 @@ module Lisk
         @host = host
         @port = port
         @ssl = false
+        return self
+      else
+        return nil
       end
     end
 

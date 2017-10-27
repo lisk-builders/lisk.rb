@@ -6,7 +6,7 @@ require 'lisk'
 client = Lisk::Client.new
 
 # Configure host and port of the Lisk client
-client.configure "127.0.0.1", 8000
+client = client.configure "127.0.0.1", 8000
 
 # Same as above, just in one line
 client = Lisk::Client.new "127.0.0.1", 8000
