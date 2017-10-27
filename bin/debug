@@ -6,4 +6,4 @@ gem uninstall lisk
 rm pkg/*.gem
 git add -A
 bundle exec rake install
-ruby example.rb
+ruby examples/status.rb

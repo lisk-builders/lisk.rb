@@ -1,4 +1,7 @@
+# The Lisk API Ruby wrapper gem.
 module Lisk
+
+  # Implements legacy APIs of the Lisk Core pre-1.0.0 node
   class Legacy
 
     attr_accessor :client
@@ -44,7 +47,7 @@ module Lisk
       chain = @client.query_get "blocks/getStatus"
     end
 
-    # Unimplemented methods
+    # Handles unimplemented methods
     def method_missing(name, *args, &block)
       todo "#{self}::#{name} METHOD MISSING"
     end
