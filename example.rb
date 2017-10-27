@@ -11,17 +11,20 @@ client.configure "127.0.0.1", 8000
 # Same as above, just in one line
 client = Lisk::Client.new "127.0.0.1", 8000
 
-if client.ping
-  version = client.version
+#
+api = Lisk::Legacy.new client
+
+if api.ping
+  version = api.version
   p "Lisk node version #{version["version"]} build #{version["build"]}..."
 
-  status = client.status
+  status = api.status
   p "Lisk node is connected: #{status["success"]}... Blockchain loaded: #{status["loaded"]}..."
 
-  syncing = client.sync
+  syncing = api.sync
   p "Lisk node is syncing: #{syncing["syncing"]}... #{syncing["blocks"]} remaining blocks to latest block #{syncing["height"]}..."
 
-  peers = client.peers
+  peers = api.peers
   cond = 0
   disd = 0
   band = 0
@@ -37,7 +40,7 @@ if client.ping
   end
   p "Lisk node saw #{peers.count} peers... #{cond} connected, #{disd} disconnected, #{band} banned..."
 
-  chain = client.chain
+  chain = api.chain
   p "Lisk chain latest block: #{chain["height"]}... total supply: #{chain["supply"] / 1e8}... block reward: #{chain["reward"] / 1e8}"
 else
   p 'Lisk node disconnected or inactive ...'

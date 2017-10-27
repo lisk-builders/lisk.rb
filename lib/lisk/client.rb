@@ -2,69 +2,44 @@ require "net/http"
 require "uri"
 require "json"
 
+# The Lisk API Ruby wrapper gem.
 module Lisk
+
+  # A simple HTTP client connecting to a Lisk Core API node.
   class Client
 
-    attr_accessor :host, :port
+    # Host and port of the API endpoint.
+    attr_accessor :host, :port, :ssl
 
+    # Initializes the Lisk HTTP client and defaults to localhost port 8000.
     def initialize host = "127.0.0.1", port = 8000
       @host = host
       @port = port
+      @ssl = false
     end
 
+    # Allows reconfiguring of the Lisk HTTP client's host and port.
     def configure host, port
       if not host.empty? or not port.empty?
         @host = host
         @port = port
+        @ssl = false
       end
     end
 
-    def query endpoint
-      node = ::Net::HTTP.new @host, @port
-      uri = URI.parse "http://#{host}:#{port}/api/#{endpoint}"
-      request = ::Net::HTTP::Get.new uri
-      response = node.request request
-      result = JSON::parse response.body
-    end
-
-    # Get the status of last received block.
-    # Returns true if block was received in the past 120 seconds.
-    def ping
-      ping = self.query "loader/status/ping"
-      ping["success"]
-    end
-
-    # Returns the sync status of the blockchain.
-    def status
-      status = self.query "loader/status"
-    end
-
-    # Get the synchronization status of the client.
-    def sync
-      sync = self.query "loader/status/sync"
-    end
-
-    # Gets list of peers.
-    def peers
-      peers = self.query "peers"
-      if peers["success"]
-        return peers["peers"]
-      else
-        return peers
+    # Handles GET requests to the given Lisk Core API endpoint
+    def query_get endpoint
+      if not @ssl
+        # fixme "#{self}::#{__method__} Allow HTTPS requests"
+        node = ::Net::HTTP.new @host, @port
+        uri = URI.parse "http://#{host}:#{port}/api/#{endpoint}"
+        request = ::Net::HTTP::Get.new uri
+        response = node.request request
+        result = JSON::parse response.body
       end
     end
 
-    # Gets version and build time.
-    def version
-      version = self.query "peers/version"
-    end
-
-    # Gets status of height, fee, milestone, blockreward and supply.
-    def chain
-      chain = self.query "blocks/getStatus"
-    end
-
-    # Unimplemented methods
+    # Handles unimplemented methods
     def method_missing(name, *args, &block)
       todo "#{self}::#{name} METHOD MISSING"
     end
