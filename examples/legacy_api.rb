@@ -9,7 +9,7 @@ client = Lisk::Client.new "127.0.0.1", 7000
 # The pre-1.0.0 legacy API connected to the client.
 legacy_api = Lisk::Legacy.new client
 
-# Testing legacy API agains https://github.com/4fryn/lisk.rb/issues/4
+# Testing legacy API against https://github.com/4fryn/lisk.rb/issues/4
 
 new_account = legacy_api.accounts_open "lorem ipsum"
 p new_account["address"]
