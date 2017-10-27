@@ -52,11 +52,6 @@ module Lisk
     def accounts_generate_public_key secret
       params = { :secret => secret }
       public_key = @client.query_post "accounts/generatePublicKey", params
-      if public_key["success"]
-        return public_key
-      else
-        return nil
-      end
     end
 
     # Returns account information of an address.
@@ -96,42 +91,50 @@ module Lisk
     # `GET /loader/status/ping`
     def loader_status_ping
       ping = @client.query_get "loader/status/ping"
-      ping["success"]
     end
 
-    ### `GET /transactions?blockId=blockId&senderId=senderId&recipientId=recipientId&limit=limit&offset=offset&orderBy=field`
-    def transactions filter
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+    # List of transactions matched by provided parameters.
+    # `GET /transactions?blockId=blockId&senderId=senderId&recipientId=recipientId&limit=limit&offset=offset&orderBy=field`
+    def transactions filter = nil
+      transactions = @client.query_get "transactions", filter
+      if transactions["success"]
+        return transactions["transactions"]
+      else
+        return nil
+      end
     end
 
     ### `PUT /transactions`
-    def transactions_put
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+    def transactions_put transaction
+      transaction = @client.query_put "transactions", transaction
     end
 
     ### `GET /transactions/get?id=id`
     def transactions_get_by_id id
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+      params = { :id => id }
+      transaction = @client.query_get "transactions/get", params
     end
 
     ### `GET /transactions/unconfirmed/get?id=id`
     def transactions_unconfirmed_get_by_id id
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+      params = { :id => id }
+      transaction = @client.query_get "transactions/unconfirmed/get", params
     end
 
     ### `GET /transactions/unconfirmed`
     def transactions_unconfirmed
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+      transaction = @client.query_get "transactions/unconfirmed"
     end
 
     ### `GET /transactions/queued`
     def transactions_queued
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+      transaction = @client.query_get "transactions/queued"
     end
 
     ### `GET /transactions/queued/get?id=id`
     def transactions_queued_get_by_id id
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+      params = { :id => id }
+      transaction = @client.query_get "transactions/queued/get", params
     end
 
     # Gets list of peers.
