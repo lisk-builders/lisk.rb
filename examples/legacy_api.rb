@@ -9,6 +9,7 @@ legacy_api = Lisk::Legacy.new client
 
 # Test data
 _secret = "lorem ipsum dolor sit amet et semper aperiam est duo modus zril"
+_second_secret = "amet aperiam dolor duo est et ipsum lorem modus semper sit zril"
 _address = "6824694156543443160L"
 _public_key = "add8d8e3e89183ac34cdfb2631e038c9b0c1e922aa9a67aba71e35aed511bcf1"
 _votes = {
@@ -79,8 +80,24 @@ _block_filter = {
 _block_id = "8589373032001092432"
 _secrets = {
   :secret => _secret,
-  :secondSecret => "amet aperiam dolor duo est et ipsum lorem modus semper sit zril",
+  :secondSecret => _second_secret,
   :publicKey => _public_key
+}
+_ms_secrets = {
+  :secret => _secret,
+  :secondSecret => _second_secret,
+  :lifetime => 72,
+  :min => 2,
+  :keysgroup => [
+    "+6089206bdd49e8e6c824b4896f5b3c2d71207c30c6bf056d430ba0d8838e7c51",
+    "+e8720600afd888455fe9eea4c859d08efd8122f4f732bba94504cfefc318de55",
+    "+d4ce34592854e06370a79ee95e4bdf8eeb9d0d37dd0c802d9ad2357fd4cb9ec7"
+  ]
+}
+_ms_signature = {
+  :secret => _secret,
+  :publicKey => _public_key,
+  :transactionId => _tx_id
 }
 
 # Testing legacy API against https://github.com/4fryn/lisk.rb/issues/4
@@ -139,22 +156,22 @@ _secrets = {
 # legacy_api.delegates_forging_get_forged_by_account public_key
 # legacy_api.delegates_get_next_forgers limit
 
-# legacy_api.dapps_put
-# legacy_api.dapps filter
-# legacy_api.dapps_get_by_id id
-# legacy_api.dapps_search query
-# legacy_api.dapps_install
-# legacy_api.dapps_installed
-# legacy_api.dapps_installed_ids
-# legacy_api.dapps_uninstall
-# legacy_api.dapps_launch
-# legacy_api.dapps_installing
-# legacy_api.dapps_uninstalling
-# legacy_api.dapps_launched
-# legacy_api.dapps_categories
-# legacy_api.dapps_stop
+# legacy_api.dapps_put ### UNIMPLEMENTED
+# legacy_api.dapps filter ### UNIMPLEMENTED
+# legacy_api.dapps_get_by_id id ### UNIMPLEMENTED
+# legacy_api.dapps_search query ### UNIMPLEMENTED
+# legacy_api.dapps_install ### UNIMPLEMENTED
+# legacy_api.dapps_installed ### UNIMPLEMENTED
+# legacy_api.dapps_installed_ids ### UNIMPLEMENTED
+# legacy_api.dapps_uninstall ### UNIMPLEMENTED
+# legacy_api.dapps_launch ### UNIMPLEMENTED
+# legacy_api.dapps_installing ### UNIMPLEMENTED
+# legacy_api.dapps_uninstalling ### UNIMPLEMENTED
+# legacy_api.dapps_launched ### UNIMPLEMENTED
+# legacy_api.dapps_categories ### UNIMPLEMENTED
+# legacy_api.dapps_stop ### UNIMPLEMENTED
 
-# legacy_api.multisignatures_put
-# legacy_api.multisignatures_accounts public_key
-# legacy_api.multisignatures_sign
-# legacy_api.multisignatures_pending public_key
+#transaction = legacy_api.multisignatures_put _ms_secrets
+#accounts = legacy_api.multisignatures_accounts _public_key
+#transaction = legacy_api.multisignatures_sign _ms_signature
+#transactions = legacy_api.multisignatures_pending _public_key

@@ -380,24 +380,30 @@ module Lisk
       todo "#{self}::#{__method__} UNIMPLEMENTED"
     end
 
-    ### `PUT /multisignatures`
-    def multisignatures_put
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+    # Create a multi-signature account.
+    # `PUT /multisignatures`
+    def multisignatures_put secrets
+      transaction = @client.query_put "multisignatures", secrets
     end
 
-    ### `GET /multisignatures/accounts?publicKey=publicKey`
+    # Gets a list of accounts that belong to a multi-signature account.
+    # `GET /multisignatures/accounts?publicKey=publicKey`
     def multisignatures_accounts public_key
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+      params = { :publicKey => public_key }
+      accounts = @client.query_get "multisignatures/accounts", params
     end
 
-    ### `POST /multisignatures/sign`
-    def multisignatures_sign
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+    # Signs a transaction that is awaiting signature.
+    # `POST /multisignatures/sign`
+    def multisignatures_sign signature
+      transaction = @client.query_post "multisignatures/sign", signature
     end
 
-    ### `GET /multisignatures/pending?publicKey=publicKey`
+    # Returns a list of multi-signature transactions that waiting for signature by publicKey.
+    # `GET /multisignatures/pending?publicKey=publicKey`
     def multisignatures_pending public_key
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+      params = { :publicKey => public_key }
+      transactions = @client.query_get "multisignatures/pending", params
     end
 
     # Handles unimplemented methods
