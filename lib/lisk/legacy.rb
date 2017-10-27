@@ -21,7 +21,8 @@ module Lisk
     # https://github.com/4fryn/lisk.rb/issues/4 #
     #############################################
 
-    ### `POST /accounts/open`
+    # Request information about an account.
+    # `POST /accounts/open`
     def accounts_open secret
       params = { :secret => secret }
       account = @client.query_post "accounts/open", params
@@ -39,29 +40,43 @@ module Lisk
       balance = @client.query_get "accounts/getBalance", params
     end
 
-    ### `GET /accounts/getPublicKey?address=address`
+    # Get the public key of an account. If the account does not exist the API call will return an error.
+    # `GET /accounts/getPublicKey?address=address`
     def accounts_get_public_key address
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+      params = { :address => address }
+      public_key = @client.query_get "accounts/getPublicKey", params
     end
 
-    ### `POST /accounts/generatePublicKey`
-    def accounts_generate_public_key
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+    # Returns the public key of the provided secret key.
+    # `POST /accounts/generatePublicKey`
+    def accounts_generate_public_key secret
+      params = { :secret => secret }
+      public_key = @client.query_post "accounts/generatePublicKey", params
+      if public_key["success"]
+        return public_key
+      else
+        return nil
+      end
     end
 
-    ### `GET /accounts?address=address`
+    # Returns account information of an address.
+    # `GET /accounts?address=address`
     def accounts address
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+      params = { :address => address }
+      account = @client.query_get "accounts", params
     end
 
-    ### `GET /accounts/delegates?address=address`
+    # Returns delegate vote accounts by address.
+    # `GET /accounts/delegates?address=address`
     def accounts_delegates_get_by_address address
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+      params = { :address => address }
+      delegate = @client.query_get "accounts/delegates", params
     end
 
-    ### `PUT /accounts/delegates`
-    def accounts_delegates_put
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+    # Vote for the selected delegates. Maximum of 33 delegates at once.
+    # `PUT /accounts/delegates`
+    def accounts_delegates_put votes
+      delegate = @client.query_put "accounts/delegates", votes
     end
 
     # Get the synchronization status of the client.
