@@ -153,7 +153,6 @@ module Lisk
       peer = @client.query_get "peers/get", filter
     end
 
-
     # Gets version and build time.
     # `GET /peers/version`
     def peers_version
@@ -161,54 +160,60 @@ module Lisk
     end
 
     ### `GET /blocks?generatorPublicKey=generatorPublicKey&height=height&previousBlock=previousBlock&totalAmount=totalAmount&totalFee=totalFee&limit=limit&offset=offset&orderBy=orderBy`
-    def blocks filter
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+    def blocks filter = nil
+      blocks = @client.query_get "blocks", filter
+      if blocks["success"]
+        return blocks["blocks"]
+      else
+        return nil
+      end
     end
 
     ### `GET /blocks/get?id=id`
     def blocks_get_by_id id
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+      params = { :id => id }
+      block = @client.query_get "blocks/get", params
     end
 
     ### `GET /blocks/getFee`
     def blocks_get_fee
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+      fee = @client.query_get "blocks/getFee"
     end
 
     ### `GET /blocks/getFees`
     def blocks_get_fees
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+      fees = @client.query_get "blocks/getFees"
     end
 
     ### `GET /blocks/getReward`
     def blocks_get_reward
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+      reward = @client.query_get "blocks/getReward"
     end
 
     ### `GET /blocks/getSupply`
     def blocks_get_supply
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+      supply = @client.query_get "blocks/getSupply"
     end
 
     ### `GET /blocks/getHeight`
     def blocks_get_height
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+      height = @client.query_get "blocks/getHeight"
     end
 
     # Gets status of height, fee, milestone, blockreward and supply.
     # `GET /blocks/getStatus`
     def blocks_get_status
-      chain = @client.query_get "blocks/getStatus"
+      status = @client.query_get "blocks/getStatus"
     end
 
     ### `GET /blocks/getNethash`
     def blocks_get_nethash
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+      nethash = @client.query_get "blocks/getNethash"
     end
 
     ### `GET /blocks/getMilestone`
     def blocks_get_milestone
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+      milestone = @client.query_get "blocks/getMilestone"
     end
 
     ### `GET /signatures/fee`

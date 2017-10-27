@@ -66,6 +66,17 @@ _ip_filter = {
   :ip => "149.56.108.109",
   :port => 7000
 }
+_block_filter = {
+  :generatorPublicKey => "5ad8b74e39ad7502c8eeea080c8627b3aa9bb28651b988ef38112f21367b132d",
+  :height => 3481431,
+  :previousBlock => "8589373032001092432",
+  :totalAmount => 0,
+  :totalFee => 0,
+  :limit => 1,
+  :offset => 0,
+  :orderBy => "height"
+}
+_block_id = "8589373032001092432"
 
 # Testing legacy API against https://github.com/4fryn/lisk.rb/issues/4
 #account = legacy_api.accounts_open _secret
@@ -90,17 +101,27 @@ _ip_filter = {
 #peers = legacy_api.peers _peer_filter
 #peer = legacy_api.peers_get _ip_filter
 #version = legacy_api.peers_version
+#blocks = legacy_api.blocks
+#blocks = legacy_api.blocks _block_filter
+#block = legacy_api.blocks_get_by_id _block_id
 
-# legacy_api.blocks filter
-# legacy_api.blocks_get_by_id id
-# legacy_api.blocks_get_fee
-# legacy_api.blocks_get_fees
-# legacy_api.blocks_get_reward
-# legacy_api.blocks_get_supply
-# legacy_api.blocks_get_height
-# legacy_api.blocks_get_status
-# legacy_api.blocks_get_nethash
-# legacy_api.blocks_get_milestone
+fee = legacy_api.blocks_get_fee
+p fee
+fees = legacy_api.blocks_get_fees
+p fees
+reward = legacy_api.blocks_get_reward
+p reward
+supply = legacy_api.blocks_get_supply
+p supply
+height = legacy_api.blocks_get_height
+p height
+status = legacy_api.blocks_get_status
+p status
+nethash = legacy_api.blocks_get_nethash
+p nethash
+milestone = legacy_api.blocks_get_milestone
+p milestone
+
 # legacy_api.signatures_fee
 # legacy_api.signatures_put
 # legacy_api.delegates_put
