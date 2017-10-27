@@ -54,6 +54,18 @@ _raw_tx = {
   :amount => 1e7
 }
 _tx_id = "17278680718005275020"
+_peer_filter = {
+  :state => 2,
+  :os => "linux3.10.0-042stab123.6",
+  :version => "0.9.10b",
+  :limit => 10,
+  :offset => 0,
+  :orderBy => "version"
+}
+_ip_filter = {
+  :ip => "149.56.108.109",
+  :port => 7000
+}
 
 # Testing legacy API against https://github.com/4fryn/lisk.rb/issues/4
 #account = legacy_api.accounts_open _secret
@@ -74,10 +86,11 @@ _tx_id = "17278680718005275020"
 #transaction = legacy_api.transactions_unconfirmed
 #transaction = legacy_api.transactions_queued
 #transaction = legacy_api.transactions_queued_get_by_id _tx_id
+#peers = legacy_api.peers
+#peers = legacy_api.peers _peer_filter
+#peer = legacy_api.peers_get _ip_filter
+#version = legacy_api.peers_version
 
-# legacy_api.peers filter
-# legacy_api.peers_get filter
-# legacy_api.peers_version
 # legacy_api.blocks filter
 # legacy_api.blocks_get_by_id id
 # legacy_api.blocks_get_fee

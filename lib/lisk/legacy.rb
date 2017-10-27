@@ -149,8 +149,8 @@ module Lisk
     end
 
     ### `GET /peers/get?ip=ip&port=port`
-    def peers_get filter
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+    def peers_get filter = nil
+      peer = @client.query_get "peers/get", filter
     end
 
 
