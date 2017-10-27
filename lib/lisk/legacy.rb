@@ -100,34 +100,40 @@ module Lisk
       end
     end
 
-    ### `PUT /transactions`
+    # Send transaction to broadcast network.
+    # `PUT /transactions`
     def transactions_put transaction
       transaction = @client.query_put "transactions", transaction
     end
 
-    ### `GET /transactions/get?id=id`
+    # Get transaction that matches the provided id.
+    # `GET /transactions/get?id=id`
     def transactions_get_by_id id
       params = { :id => id }
       transaction = @client.query_get "transactions/get", params
     end
 
-    ### `GET /transactions/unconfirmed/get?id=id`
+    # Get unconfirmed transaction that matches the provided id.
+    # `GET /transactions/unconfirmed/get?id=id`
     def transactions_unconfirmed_get_by_id id
       params = { :id => id }
       transaction = @client.query_get "transactions/unconfirmed/get", params
     end
 
-    ### `GET /transactions/unconfirmed`
+    # Gets a list of unconfirmed transactions.
+    # `GET /transactions/unconfirmed`
     def transactions_unconfirmed
       transaction = @client.query_get "transactions/unconfirmed"
     end
 
-    ### `GET /transactions/queued`
+    # Gets a list of queued transactions.
+    # `GET /transactions/queued`
     def transactions_queued
       transaction = @client.query_get "transactions/queued"
     end
 
-    ### `GET /transactions/queued/get?id=id`
+    # Get queued transaction that matches the provided id.
+    # `GET /transactions/queued/get?id=id`
     def transactions_queued_get_by_id id
       params = { :id => id }
       transaction = @client.query_get "transactions/queued/get", params
@@ -144,7 +150,8 @@ module Lisk
       end
     end
 
-    ### `GET /peers/get?ip=ip&port=port`
+    # Gets peer by IP address and port.
+    # `GET /peers/get?ip=ip&port=port`
     def peers_get filter = nil
       peer = @client.query_get "peers/get", filter
     end
@@ -155,7 +162,8 @@ module Lisk
       version = @client.query_get "peers/version"
     end
 
-    ### `GET /blocks?generatorPublicKey=generatorPublicKey&height=height&previousBlock=previousBlock&totalAmount=totalAmount&totalFee=totalFee&limit=limit&offset=offset&orderBy=orderBy`
+    # Gets all blocks by provided filter(s).
+    # `GET /blocks?generatorPublicKey=generatorPublicKey&height=height&previousBlock=previousBlock&totalAmount=totalAmount&totalFee=totalFee&limit=limit&offset=offset&orderBy=orderBy`
     def blocks filter = nil
       blocks = @client.query_get "blocks", filter
       if blocks["success"]
@@ -165,33 +173,39 @@ module Lisk
       end
     end
 
-    ### `GET /blocks/get?id=id`
+    # Gets block by provided id.
+    # `GET /blocks/get?id=id`
     def blocks_get_by_id id
       params = { :id => id }
       block = @client.query_get "blocks/get", params
     end
 
-    ### `GET /blocks/getFee`
+    # Get transaction fee for sending "normal" transactions.
+    # `GET /blocks/getFee`
     def blocks_get_fee
       fee = @client.query_get "blocks/getFee"
     end
 
-    ### `GET /blocks/getFees`
+    # Get transaction fee for all types of transactions.
+    # `GET /blocks/getFees`
     def blocks_get_fees
       fees = @client.query_get "blocks/getFees"
     end
 
-    ### `GET /blocks/getReward`
+    # Gets the forging reward for blocks.
+    # `GET /blocks/getReward`
     def blocks_get_reward
       reward = @client.query_get "blocks/getReward"
     end
 
-    ### `GET /blocks/getSupply`
+    # Gets the total amount of Lisk in circulation
+    # `GET /blocks/getSupply`
     def blocks_get_supply
       supply = @client.query_get "blocks/getSupply"
     end
 
-    ### `GET /blocks/getHeight`
+    # Gets the blockchain height of the client.
+    # `GET /blocks/getHeight`
     def blocks_get_height
       height = @client.query_get "blocks/getHeight"
     end
@@ -202,12 +216,14 @@ module Lisk
       status = @client.query_get "blocks/getStatus"
     end
 
-    ### `GET /blocks/getNethash`
+    # Gets the nethash of the blockchain on a client.
+    # `GET /blocks/getNethash`
     def blocks_get_nethash
       nethash = @client.query_get "blocks/getNethash"
     end
 
-    ### `GET /blocks/getMilestone`
+    # Gets the milestone of the blockchain on a client.
+    # `GET /blocks/getMilestone`
     def blocks_get_milestone
       milestone = @client.query_get "blocks/getMilestone"
     end
@@ -265,7 +281,8 @@ module Lisk
       end
     end
 
-    ### `GET /delegates/search?q=username&orderBy=producedblocks:desc`
+    # Search for Delegates by "fuzzy" username.
+    # `GET /delegates/search?q=username&orderBy=producedblocks:desc`
     def delegates_search query
       delegates = @client.query_get "delegates/search", query
       if delegates["success"]
@@ -275,12 +292,14 @@ module Lisk
       end
     end
 
-    ### `GET /delegates/count`
+    # Get total count of registered delegates.
+    # `GET /delegates/count`
     def delegates_count
       count = @client.query_get "delegates/count"
     end
 
-    ### `GET /accounts/delegates/?address=address`
+    # Get votes by account wallet address.
+    # `GET /accounts/delegates/?address=address`
     def accounts_delegates address
       params = { :address => address }
       account = @client.query_get "accounts/delegates", params
@@ -298,25 +317,29 @@ module Lisk
       end
     end
 
-    ### `POST /delegates/forging/enable`
+    # Enables forging for a delegate on the client node.
+    # `POST /delegates/forging/enable`
     def delegates_forging_enable secret
       params = { :secret => secret }
       count = @client.query_post "delegates/forging/enable", params
     end
 
-    ### `POST /delegates/forging/disable`
+    # Disables forging for a delegate on the client node.
+    # `POST /delegates/forging/disable`
     def delegates_forging_disable secret
       params = { :secret => secret }
       count = @client.query_post "delegates/forging/disable", params
     end
 
-    ### `GET /delegates/forging/getForgedByAccount?generatorPublicKey=generatorPublicKey`
+    # Get amount of Lisk forged by an account.
+    # `GET /delegates/forging/getForgedByAccount?generatorPublicKey=generatorPublicKey`
     def delegates_forging_get_forged_by_account public_key
       params = { :generatorPublicKey => public_key }
       forged = @client.query_get "delegates/forging/getForgedByAccount", params
     end
 
-    ### `GET /delegates/getNextForgers?limit=limit`
+    # Get next delegate lining up to forge.
+    # `GET /delegates/getNextForgers?limit=limit`
     def delegates_get_next_forgers limit = 10
       params = { :limit => limit }
       forgers = @client.query_get "delegates/getNextForgers", params
@@ -326,77 +349,75 @@ module Lisk
     # https://github.com/4fryn/lisk.rb/issues/4 #
     #############################################
 
-    ### `PUT /dapps`
+    # `PUT /dapps`
     def dapps_put
       todo "#{self}::#{__method__} UNIMPLEMENTED"
     end
 
-    ### `GET /dapps?category=category&name=name&type=type&link=link&limit=limit&offset=offset&orderBy=orderBy`
+    # `GET /dapps?category=category&name=name&type=type&link=link&limit=limit&offset=offset&orderBy=orderBy`
     def dapps filter
       todo "#{self}::#{__method__} UNIMPLEMENTED"
     end
 
-    ### `GET /dapps/get?id=id`
+    # `GET /dapps/get?id=id`
     def dapps_get_by_id id
       todo "#{self}::#{__method__} UNIMPLEMENTED"
     end
 
-    ### `GET /dapps/search?q=q&category=category&installed=installed`
+    # `GET /dapps/search?q=q&category=category&installed=installed`
     def dapps_search query
       todo "#{self}::#{__method__} UNIMPLEMENTED"
     end
 
-    ### `POST /dapps/install`
+    # `POST /dapps/install`
     def dapps_install
       todo "#{self}::#{__method__} UNIMPLEMENTED"
     end
 
-    ### `GET /dapps/installed`
+    # `GET /dapps/installed`
     def dapps_installed
       todo "#{self}::#{__method__} UNIMPLEMENTED"
     end
 
-    ### `GET /dapps/installedIds`
+    # `GET /dapps/installedIds`
     def dapps_installed_ids
       todo "#{self}::#{__method__} UNIMPLEMENTED"
     end
 
-    ### `POST /dapps/uninstall`
+    # `POST /dapps/uninstall`
     def dapps_uninstall
       todo "#{self}::#{__method__} UNIMPLEMENTED"
     end
 
-    ### `POST /dapps/launch`
+    # `POST /dapps/launch`
     def dapps_launch
       todo "#{self}::#{__method__} UNIMPLEMENTED"
     end
 
-    ### `GET /dapps/installing`
+    # `GET /dapps/installing`
     def dapps_installing
       todo "#{self}::#{__method__} UNIMPLEMENTED"
     end
 
-    ### `GET /dapps/uninstalling`
+    # `GET /dapps/uninstalling`
     def dapps_uninstalling
       todo "#{self}::#{__method__} UNIMPLEMENTED"
     end
 
-    ### `GET /dapps/launched`
+    # `GET /dapps/launched`
     def dapps_launched
       todo "#{self}::#{__method__} UNIMPLEMENTED"
     end
 
-    ### `GET /dapps/categories`
+    # `GET /dapps/categories`
     def dapps_categories
       todo "#{self}::#{__method__} UNIMPLEMENTED"
     end
 
-    ### `POST /dapps/stop`
+    # `POST /dapps/stop`
     def dapps_stop
       todo "#{self}::#{__method__} UNIMPLEMENTED"
     end
-
-    #############################################
 
     # Create a multi-signature account.
     # `PUT /multisignatures`

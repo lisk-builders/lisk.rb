@@ -6,6 +6,11 @@ A simple Ruby wrapper for the Lisk API. 💎
 
 This is very early work-in-progress. The idea is to publish this `gem` as soon as it is fully compatible with Lisk Core 1.0.0, which, however, is not released yet. The current implementation of the lisk.rb gem is pure minimal by design and barely allows checking the node status.
 
+API Implemententation Status:
+
+- `Lisk::Legacy` 48/62 APIs for Lisk Core 0.8.0+ ([#4](https://github.com/4fryn/lisk.rb/issues/4))
+- `Lisk::API` 0/34 APIs for Lisk Core 1.0.0+ ([#1](https://github.com/4fryn/lisk.rb/issues/1))
+
 ## Installation
 
 Add this line to your application's Gemfile:
