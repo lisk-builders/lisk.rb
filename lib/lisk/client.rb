@@ -75,9 +75,10 @@ module Lisk
         # fixme "#{self}::#{__method__} Allow HTTPS requests"
         begin
           node = ::Net::HTTP.new @host, @port
+          header = {'Content-Type': 'application/json'}
           uri = URI.parse "http://#{host}:#{port}/api/#{endpoint}"
-          uri.query = URI.encode_www_form params
-          request = ::Net::HTTP::POST.new uri
+          request = ::Net::HTTP::Post.new uri, header
+          request.body = params.to_json
           response = node.request request
           result = JSON::parse response.body
         rescue Timeout::Error => e

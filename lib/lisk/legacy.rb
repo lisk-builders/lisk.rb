@@ -22,8 +22,14 @@ module Lisk
     #############################################
 
     ### `POST /accounts/open`
-    def accounts_open
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+    def accounts_open secret
+      params = { :secret => secret }
+      account = @client.query_post "accounts/open", params
+      if account["success"]
+        return account["account"]
+      else
+        return nil
+      end
     end
 
     # Request the balance of an account.
