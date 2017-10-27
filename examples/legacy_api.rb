@@ -8,6 +8,7 @@ client = Lisk::Client.new "127.0.0.1", 7000
 legacy_api = Lisk::Legacy.new client
 
 # Test data
+_user = "4fryn_lorem_ipsum_42"
 _secret = "lorem ipsum dolor sit amet et semper aperiam est duo modus zril"
 _second_secret = "amet aperiam dolor duo est et ipsum lorem modus semper sit zril"
 _address = "6824694156543443160L"
@@ -15,7 +16,7 @@ _public_key = "add8d8e3e89183ac34cdfb2631e038c9b0c1e922aa9a67aba71e35aed511bcf1"
 _votes = {
   :secret => _secret,
   :public_key => _public_key,
-# :secondSecret => nil,
+# :secondSecret => _second_secret,
   :delegates => [
     "+473c354cdf627b82e9113e02a337486dd3afc5615eb71ffd311c5a0beda37b8c",
     "+eaa049295d96618c51eb30deffe7fc2cc8bfc13190cb97f3b513dd060b000a46",
@@ -50,7 +51,7 @@ _tx_filter = {
 _raw_tx = {
   :secret => _secret,
   :publicKey => _public_key,
-# :secondSecret => nil,
+# :secondSecret => _second_secret,
   :recipientId => "15709494141295217973L",
   :amount => 1e7
 }
@@ -80,12 +81,12 @@ _block_filter = {
 _block_id = "8589373032001092432"
 _secrets = {
   :secret => _secret,
-  :secondSecret => _second_secret,
+# :secondSecret => _second_secret,
   :publicKey => _public_key
 }
 _ms_secrets = {
   :secret => _secret,
-  :secondSecret => _second_secret,
+# :secondSecret => _second_secret,
   :lifetime => 72,
   :min => 2,
   :keysgroup => [
@@ -98,6 +99,20 @@ _ms_signature = {
   :secret => _secret,
   :publicKey => _public_key,
   :transactionId => _tx_id
+}
+_delegate = {
+  :secret => _secret,
+# :secondSecret => _second_secret,
+  :username => _user
+}
+_delegate_filter = {
+  :limit => 3,
+  :offset => 0,
+  :orderBy => "username"
+}
+_delegate_query = {
+  :q => "4fryn",
+  :orderBy => "producedblocks:desc"
 }
 
 # Testing legacy API against https://github.com/4fryn/lisk.rb/issues/4
@@ -143,18 +158,20 @@ _ms_signature = {
 #fee = legacy_api.signatures_fee
 #transaction = legacy_api.signatures_put _secrets
 
-# legacy_api.delegates_put
-# legacy_api.delegates filter
-# legacy_api.delegates_get_by_key public_key
-# legacy_api.delegates_get_by_name user_name
-# legacy_api.delegates_search query
-# legacy_api.delegates_count
-# legacy_api.accounts_delegates address
-# legacy_api.delegates_voters public_key
-# legacy_api.delegates_forging_enable
-# legacy_api.delegates_forging_disable
-# legacy_api.delegates_forging_get_forged_by_account public_key
-# legacy_api.delegates_get_next_forgers limit
+#delegate = legacy_api.delegates_put _delegate
+#delegates = legacy_api.delegates
+#delegates = legacy_api.delegates _delegate_filter
+#delegate = legacy_api.delegates_get_by_key _public_key
+#delegate = legacy_api.delegates_get_by_name _user
+#delegates = legacy_api.delegates_search _delegate_query
+#count = legacy_api.delegates_count
+#account = legacy_api.accounts_delegates _address
+#voters = legacy_api.delegates_voters _public_key
+#address = legacy_api.delegates_forging_enable _secret
+#address = legacy_api.delegates_forging_disable _secret
+#forged = legacy_api.delegates_forging_get_forged_by_account _public_key
+#forgers = legacy_api.delegates_get_next_forgers
+#forgers = legacy_api.delegates_get_next_forgers 3
 
 # legacy_api.dapps_put ### UNIMPLEMENTED
 # legacy_api.dapps filter ### UNIMPLEMENTED

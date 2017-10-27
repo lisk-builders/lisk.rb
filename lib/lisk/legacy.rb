@@ -228,14 +228,21 @@ module Lisk
       transaction = @client.query_put "signatures", secrets
     end
 
-    ### `PUT /delegates`
-    def delegates_put
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+    # Puts request to create a delegate.
+    # `PUT /delegates`
+    def delegates_put delegate
+      delegate = @client.query_put "delegates", delegate
     end
 
-    ### `GET /delegates?limit=limit&offset=offset&orderBy=orderBy`
-    def delegates filter
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+    # Gets list of delegates by provided filter.
+    # `GET /delegates?limit=limit&offset=offset&orderBy=orderBy`
+    def delegates filter = nil
+      delegates = @client.query_get "delegates", filter
+      if delegates["success"]
+        return delegates["delegates"]
+      else
+        return nil
+      end
     end
 
     # Gets delegate by public key.
@@ -264,17 +271,23 @@ module Lisk
 
     ### `GET /delegates/search?q=username&orderBy=producedblocks:desc`
     def delegates_search query
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+      delegates = @client.query_get "delegates/search", query
+      if delegates["success"]
+        return delegates["delegates"]
+      else
+        return nil
+      end
     end
 
     ### `GET /delegates/count`
     def delegates_count
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+      count = @client.query_get "delegates/count"
     end
 
     ### `GET /accounts/delegates/?address=address`
     def accounts_delegates address
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+      params = { :address => address }
+      account = @client.query_get "accounts/delegates", params
     end
 
 
@@ -291,23 +304,27 @@ module Lisk
     end
 
     ### `POST /delegates/forging/enable`
-    def delegates_forging_enable
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+    def delegates_forging_enable secret
+      params = { :secret => secret }
+      count = @client.query_post "delegates/forging/enable", params
     end
 
     ### `POST /delegates/forging/disable`
-    def delegates_forging_disable
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+    def delegates_forging_disable secret
+      params = { :secret => secret }
+      count = @client.query_post "delegates/forging/disable", params
     end
 
     ### `GET /delegates/forging/getForgedByAccount?generatorPublicKey=generatorPublicKey`
     def delegates_forging_get_forged_by_account public_key
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+      params = { :generatorPublicKey => public_key }
+      forged = @client.query_get "delegates/forging/getForgedByAccount", params
     end
 
     ### `GET /delegates/getNextForgers?limit=limit`
     def delegates_get_next_forgers limit = 10
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+      params = { :limit => limit }
+      forgers = @client.query_get "delegates/getNextForgers", params
     end
 
     ### `PUT /dapps`
