@@ -59,15 +59,6 @@ if legacy_api.ping
   _debug_payout_diff = payout_balance - _debug_payout_sum
   fail if not _debug_payout_diff === 0
 
-
 else
   p 'Lisk node disconnected, inactive, or not fully synchronized ...'
 end
-
-#account = Lisk::Account.new("14524922419337843943L")
-#client.get_address(account)
-#block = Lisk::Block.new("11145685198263496703")
-#delegate = Lisk::Delegate.new("lightcurve")
-#client.get_address(delegate)
-#client.get_voters(delegate)
-#transaction = Lisk::Transaction.new("10153999325502978458")
