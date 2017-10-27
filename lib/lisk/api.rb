@@ -182,7 +182,7 @@ module Lisk
     end
 
     # Handles unimplemented methods
-    def method_missing(name, *args, &block)
+    def method_missing name, *args, &block
       todo "#{self}::#{name} METHOD MISSING"
     end
 

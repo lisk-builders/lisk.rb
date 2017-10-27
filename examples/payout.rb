@@ -54,10 +54,10 @@ if legacy_api.loader_status_ping
   # @TODO: sending 20% delegate share to her private address
   p "Sending #{payout_balance * 0.20 / 1e8} LSK to delegate private funds..."
 
-  # Should not fail
+  # _debug_payout_diff should be 0
   _debug_payout_sum += payout_balance * 0.20
   _debug_payout_diff = payout_balance - _debug_payout_sum
-  fail if not _debug_payout_diff === 0
+  p "#{_debug_payout_diff === 0}"
 
 else
   p 'Lisk node disconnected, inactive, or not fully synchronized ...'

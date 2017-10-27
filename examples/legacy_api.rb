@@ -81,7 +81,7 @@ _block_filter = {
 _block_id = "8589373032001092432"
 _secrets = {
   :secret => _secret,
-# :secondSecret => _second_secret,
+  :secondSecret => _second_secret,
   :publicKey => _public_key
 }
 _ms_secrets = {
@@ -116,79 +116,131 @@ _delegate_query = {
 }
 
 # Testing legacy API against https://github.com/4fryn/lisk.rb/issues/4
+account = legacy_api.accounts_open _secret
+p account
+balance = legacy_api.accounts_get_balance _address
+p balance
+public_key = legacy_api.accounts_get_public_key _address
+p public_key
+public_key = legacy_api.accounts_generate_public_key _secret
+p public_key
+account = legacy_api.accounts _address
+p account
+delegate = legacy_api.accounts_delegates_get_by_address _address
+p delegate
+votes = legacy_api.accounts_delegates_put _votes
+p votes
 
-#account = legacy_api.accounts_open _secret
-#balance = legacy_api.accounts_get_balance _address
-#public_key = legacy_api.accounts_get_public_key _address
-#public_key = legacy_api.accounts_generate_public_key _secret
-#account = legacy_api.accounts _address
-#delegate = legacy_api.accounts_delegates_get_by_address _address
-#votes = legacy_api.accounts_delegates_put _votes
+syncing = legacy_api.loader_status_sync
+p syncing
+status = legacy_api.loader_status
+p status
+ping = legacy_api.loader_status_ping
+p ping
 
-#syncing = legacy_api.loader_status_sync
-#status = legacy_api.loader_status
-#ping = legacy_api.loader_status_ping
+transactions = legacy_api.transactions
+p transactions
+transactions = legacy_api.transactions _tx_filter
+p transactions
+transaction = legacy_api.transactions_put _raw_tx
+p transaction
+transaction = legacy_api.transactions_get_by_id _tx_id
+p transaction
+transaction = legacy_api.transactions_unconfirmed_get_by_id _tx_id
+p transaction
+transaction = legacy_api.transactions_unconfirmed
+p transaction
+transaction = legacy_api.transactions_queued
+p transaction
+transaction = legacy_api.transactions_queued_get_by_id _tx_id
+p transaction
 
-#transactions = legacy_api.transactions
-#transactions = legacy_api.transactions _tx_filter
-#transaction = legacy_api.transactions_put _raw_tx
-#transaction = legacy_api.transactions_get_by_id _tx_id
-#transaction = legacy_api.transactions_unconfirmed_get_by_id _tx_id
-#transaction = legacy_api.transactions_unconfirmed
-#transaction = legacy_api.transactions_queued
-#transaction = legacy_api.transactions_queued_get_by_id _tx_id
+peers = legacy_api.peers
+p peers
+peers = legacy_api.peers _peer_filter
+p peers
+peer = legacy_api.peers_get _ip_filter
+p peer
+version = legacy_api.peers_version
+p version
 
-#peers = legacy_api.peers
-#peers = legacy_api.peers _peer_filter
-#peer = legacy_api.peers_get _ip_filter
-#version = legacy_api.peers_version
+blocks = legacy_api.blocks
+p blocks
+blocks = legacy_api.blocks _block_filter
+p blocks
+block = legacy_api.blocks_get_by_id _block_id
+p block
+fee = legacy_api.blocks_get_fee
+p fee
+fees = legacy_api.blocks_get_fees
+p fees
+reward = legacy_api.blocks_get_reward
+p reward
+supply = legacy_api.blocks_get_supply
+p supply
+height = legacy_api.blocks_get_height
+p height
+status = legacy_api.blocks_get_status
+p status
+nethash = legacy_api.blocks_get_nethash
+p nethash
+milestone = legacy_api.blocks_get_milestone
+p milestone
 
-#blocks = legacy_api.blocks
-#blocks = legacy_api.blocks _block_filter
-#block = legacy_api.blocks_get_by_id _block_id
-#fee = legacy_api.blocks_get_fee
-#fees = legacy_api.blocks_get_fees
-#reward = legacy_api.blocks_get_reward
-#supply = legacy_api.blocks_get_supply
-#height = legacy_api.blocks_get_height
-#status = legacy_api.blocks_get_status
-#nethash = legacy_api.blocks_get_nethash
-#milestone = legacy_api.blocks_get_milestone
+fee = legacy_api.signatures_fee
+p fee
+transaction = legacy_api.signatures_put _secrets
+p transaction
 
-#fee = legacy_api.signatures_fee
-#transaction = legacy_api.signatures_put _secrets
+delegate = legacy_api.delegates_put _delegate
+p delegate
+delegates = legacy_api.delegates
+p delegates
+delegates = legacy_api.delegates _delegate_filter
+p delegates
+delegate = legacy_api.delegates_get_by_key _public_key
+p delegate
+delegate = legacy_api.delegates_get_by_name _user
+p delegate
+delegates = legacy_api.delegates_search _delegate_query
+p delegates
+count = legacy_api.delegates_count
+p count
+account = legacy_api.accounts_delegates _address
+p account
+voters = legacy_api.delegates_voters _public_key
+p voters
+address = legacy_api.delegates_forging_enable _secret
+p address
+address = legacy_api.delegates_forging_disable _secret
+p address
+forged = legacy_api.delegates_forging_get_forged_by_account _public_key
+p forged
+forgers = legacy_api.delegates_get_next_forgers
+p forgers
+forgers = legacy_api.delegates_get_next_forgers 3
+p forgers
 
-#delegate = legacy_api.delegates_put _delegate
-#delegates = legacy_api.delegates
-#delegates = legacy_api.delegates _delegate_filter
-#delegate = legacy_api.delegates_get_by_key _public_key
-#delegate = legacy_api.delegates_get_by_name _user
-#delegates = legacy_api.delegates_search _delegate_query
-#count = legacy_api.delegates_count
-#account = legacy_api.accounts_delegates _address
-#voters = legacy_api.delegates_voters _public_key
-#address = legacy_api.delegates_forging_enable _secret
-#address = legacy_api.delegates_forging_disable _secret
-#forged = legacy_api.delegates_forging_get_forged_by_account _public_key
-#forgers = legacy_api.delegates_get_next_forgers
-#forgers = legacy_api.delegates_get_next_forgers 3
+#legacy_api.dapps_put ### UNIMPLEMENTED (#4)
+#legacy_api.dapps filter ### UNIMPLEMENTED (#4)
+#legacy_api.dapps_get_by_id id ### UNIMPLEMENTED (#4)
+#legacy_api.dapps_search query ### UNIMPLEMENTED (#4)
+#legacy_api.dapps_install ### UNIMPLEMENTED (#4)
+#legacy_api.dapps_installed ### UNIMPLEMENTED (#4)
+#legacy_api.dapps_installed_ids ### UNIMPLEMENTED (#4)
+#legacy_api.dapps_uninstall ### UNIMPLEMENTED (#4)
+#legacy_api.dapps_launch ### UNIMPLEMENTED (#4)
+#legacy_api.dapps_installing ### UNIMPLEMENTED (#4)
+#legacy_api.dapps_uninstalling ### UNIMPLEMENTED (#4)
+#legacy_api.dapps_launched ### UNIMPLEMENTED (#4)
+#legacy_api.dapps_categories ### UNIMPLEMENTED (#4)
+#legacy_api.dapps_stop ### UNIMPLEMENTED (#4)
 
-# legacy_api.dapps_put ### UNIMPLEMENTED
-# legacy_api.dapps filter ### UNIMPLEMENTED
-# legacy_api.dapps_get_by_id id ### UNIMPLEMENTED
-# legacy_api.dapps_search query ### UNIMPLEMENTED
-# legacy_api.dapps_install ### UNIMPLEMENTED
-# legacy_api.dapps_installed ### UNIMPLEMENTED
-# legacy_api.dapps_installed_ids ### UNIMPLEMENTED
-# legacy_api.dapps_uninstall ### UNIMPLEMENTED
-# legacy_api.dapps_launch ### UNIMPLEMENTED
-# legacy_api.dapps_installing ### UNIMPLEMENTED
-# legacy_api.dapps_uninstalling ### UNIMPLEMENTED
-# legacy_api.dapps_launched ### UNIMPLEMENTED
-# legacy_api.dapps_categories ### UNIMPLEMENTED
-# legacy_api.dapps_stop ### UNIMPLEMENTED
-
-#transaction = legacy_api.multisignatures_put _ms_secrets
-#accounts = legacy_api.multisignatures_accounts _public_key
-#transaction = legacy_api.multisignatures_sign _ms_signature
-#transactions = legacy_api.multisignatures_pending _public_key
+transaction = legacy_api.multisignatures_put _ms_secrets
+p transaction
+accounts = legacy_api.multisignatures_accounts _public_key
+p accounts
+transaction = legacy_api.multisignatures_sign _ms_signature
+p transaction
+transactions = legacy_api.multisignatures_pending _public_key
+p transactions

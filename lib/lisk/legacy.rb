@@ -17,10 +17,6 @@ module Lisk
       end
     end
 
-    #############################################
-    # https://github.com/4fryn/lisk.rb/issues/4 #
-    #############################################
-
     # Request information about an account.
     # `POST /accounts/open`
     def accounts_open secret
@@ -290,7 +286,6 @@ module Lisk
       account = @client.query_get "accounts/delegates", params
     end
 
-
     # Gets voters of delegate.
     # `GET /delegates/voters?publicKey=publicKey`
     def delegates_voters public_key
@@ -326,6 +321,10 @@ module Lisk
       params = { :limit => limit }
       forgers = @client.query_get "delegates/getNextForgers", params
     end
+
+    #############################################
+    # https://github.com/4fryn/lisk.rb/issues/4 #
+    #############################################
 
     ### `PUT /dapps`
     def dapps_put
@@ -397,6 +396,8 @@ module Lisk
       todo "#{self}::#{__method__} UNIMPLEMENTED"
     end
 
+    #############################################
+
     # Create a multi-signature account.
     # `PUT /multisignatures`
     def multisignatures_put secrets
@@ -424,7 +425,7 @@ module Lisk
     end
 
     # Handles unimplemented methods
-    def method_missing(name, *args, &block)
+    def method_missing name, *args, &block
       todo "#{self}::#{name} METHOD MISSING"
     end
 
