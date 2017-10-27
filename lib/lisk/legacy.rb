@@ -216,14 +216,16 @@ module Lisk
       milestone = @client.query_get "blocks/getMilestone"
     end
 
-    ### `GET /signatures/fee`
+    # Gets the second signature status of an account.
+    # `GET /signatures/fee`
     def signatures_fee
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+      fee = @client.query_get "signatures/fee"
     end
 
-    ### `PUT /signatures`
-    def signatures_put
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+    # Add a second signature to an account.
+    # `PUT /signatures`
+    def signatures_put secrets
+      transaction = @client.query_put "signatures", secrets
     end
 
     ### `PUT /delegates`

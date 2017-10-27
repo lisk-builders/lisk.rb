@@ -77,8 +77,14 @@ _block_filter = {
   :orderBy => "height"
 }
 _block_id = "8589373032001092432"
+_secrets = {
+  :secret => _secret,
+  :secondSecret => "amet aperiam dolor duo est et ipsum lorem modus semper sit zril",
+  :publicKey => _public_key
+}
 
 # Testing legacy API against https://github.com/4fryn/lisk.rb/issues/4
+
 #account = legacy_api.accounts_open _secret
 #balance = legacy_api.accounts_get_balance _address
 #public_key = legacy_api.accounts_get_public_key _address
@@ -86,9 +92,11 @@ _block_id = "8589373032001092432"
 #account = legacy_api.accounts _address
 #delegate = legacy_api.accounts_delegates_get_by_address _address
 #votes = legacy_api.accounts_delegates_put _votes
+
 #syncing = legacy_api.loader_status_sync
 #status = legacy_api.loader_status
 #ping = legacy_api.loader_status_ping
+
 #transactions = legacy_api.transactions
 #transactions = legacy_api.transactions _tx_filter
 #transaction = legacy_api.transactions_put _raw_tx
@@ -97,33 +105,27 @@ _block_id = "8589373032001092432"
 #transaction = legacy_api.transactions_unconfirmed
 #transaction = legacy_api.transactions_queued
 #transaction = legacy_api.transactions_queued_get_by_id _tx_id
+
 #peers = legacy_api.peers
 #peers = legacy_api.peers _peer_filter
 #peer = legacy_api.peers_get _ip_filter
 #version = legacy_api.peers_version
+
 #blocks = legacy_api.blocks
 #blocks = legacy_api.blocks _block_filter
 #block = legacy_api.blocks_get_by_id _block_id
+#fee = legacy_api.blocks_get_fee
+#fees = legacy_api.blocks_get_fees
+#reward = legacy_api.blocks_get_reward
+#supply = legacy_api.blocks_get_supply
+#height = legacy_api.blocks_get_height
+#status = legacy_api.blocks_get_status
+#nethash = legacy_api.blocks_get_nethash
+#milestone = legacy_api.blocks_get_milestone
 
-fee = legacy_api.blocks_get_fee
-p fee
-fees = legacy_api.blocks_get_fees
-p fees
-reward = legacy_api.blocks_get_reward
-p reward
-supply = legacy_api.blocks_get_supply
-p supply
-height = legacy_api.blocks_get_height
-p height
-status = legacy_api.blocks_get_status
-p status
-nethash = legacy_api.blocks_get_nethash
-p nethash
-milestone = legacy_api.blocks_get_milestone
-p milestone
+#fee = legacy_api.signatures_fee
+#transaction = legacy_api.signatures_put _secrets
 
-# legacy_api.signatures_fee
-# legacy_api.signatures_put
 # legacy_api.delegates_put
 # legacy_api.delegates filter
 # legacy_api.delegates_get_by_key public_key
@@ -136,6 +138,7 @@ p milestone
 # legacy_api.delegates_forging_disable
 # legacy_api.delegates_forging_get_forged_by_account public_key
 # legacy_api.delegates_get_next_forgers limit
+
 # legacy_api.dapps_put
 # legacy_api.dapps filter
 # legacy_api.dapps_get_by_id id
@@ -150,6 +153,7 @@ p milestone
 # legacy_api.dapps_launched
 # legacy_api.dapps_categories
 # legacy_api.dapps_stop
+
 # legacy_api.multisignatures_put
 # legacy_api.multisignatures_accounts public_key
 # legacy_api.multisignatures_sign
