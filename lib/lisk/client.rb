@@ -16,7 +16,11 @@ module Lisk
       @host = host
       @port = port
       @ssl = false
-      return self
+      if self.is_alive?
+        return self
+      else
+        return nil
+      end
     end
 
     # Allows reconfiguring of the Lisk HTTP client's host and port.
@@ -25,21 +29,40 @@ module Lisk
         @host = host
         @port = port
         @ssl = false
-        return self
+        if self.is_alive?
+          return self
+        else
+          return nil
+        end
       else
         return nil
       end
+    end
+
+    # Get the status of last received block.
+    # Returns true if block was received in the past 120 seconds.
+    def is_alive?
+      connected = self.query_get "loader/status/ping"
+      connected["success"]
     end
 
     # Handles GET requests to the given Lisk Core API endpoint
     def query_get endpoint
       if not @ssl
         # fixme "#{self}::#{__method__} Allow HTTPS requests"
-        node = ::Net::HTTP.new @host, @port
-        uri = URI.parse "http://#{host}:#{port}/api/#{endpoint}"
-        request = ::Net::HTTP::Get.new uri
-        response = node.request request
-        result = JSON::parse response.body
+        begin
+          node = ::Net::HTTP.new @host, @port
+          uri = URI.parse "http://#{host}:#{port}/api/#{endpoint}"
+          request = ::Net::HTTP::Get.new uri
+          response = node.request request
+          result = JSON::parse response.body
+        rescue Timeout::Error => e
+          p "Can't connect to the Lisk node: Timeout!"
+        rescue Errno::EHOSTUNREACH => e
+          p "Can't connect to the Lisk node: Host Unreachable!"
+        rescue Errno::ECONNREFUSED => e
+          p "Can't connect to the Lisk node: Connection Refused!"
+        end
       end
     end
 

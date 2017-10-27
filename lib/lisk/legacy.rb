@@ -7,6 +7,7 @@ module Lisk
     # A "lisk/client" connecting to a Lisk Core API node.
     attr_accessor :client
 
+    # Initializing the legacy API with a legacy Lisk Core API client.
     def initialize client
       if not client.nil?
         @client = client

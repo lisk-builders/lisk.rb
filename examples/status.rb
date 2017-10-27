@@ -12,25 +12,25 @@ client = client.configure "127.0.0.1", 8000
 client = Lisk::Client.new "127.0.0.1", 8000
 
 # The pre-1.0.0 legacy API
-api = Lisk::Legacy.new client
+legacy_api = Lisk::Legacy.new client
 
 # Only proceed if the client is connected, active, and fully synchronized
-if api.ping
+if legacy_api.ping
 
   # Lisk version API example
-  version = api.version
+  version = legacy_api.version
   p "Lisk node version #{version["version"]} build #{version["build"]}..."
 
   # Lisk node status API example
-  status = api.status
+  status = legacy_api.status
   p "Lisk node is connected: #{status["success"]}... Blockchain loaded: #{status["loaded"]}..."
 
   # Lisk node syncing API example
-  syncing = api.sync
+  syncing = legacy_api.sync
   p "Lisk node is syncing: #{syncing["syncing"]}... #{syncing["blocks"]} remaining blocks to latest block #{syncing["height"]}..."
 
   # Lisk node peers API example
-  peers = api.peers
+  peers = legacy_api.peers
   cond = 0
   disd = 0
   band = 0
@@ -47,7 +47,7 @@ if api.ping
   p "Lisk node saw #{peers.count} peers... #{cond} connected, #{disd} disconnected, #{band} banned..."
 
   # Lisk blockchain API example
-  chain = api.chain
+  chain = legacy_api.chain
   p "Lisk chain latest block: #{chain["height"]}... total supply: #{chain["supply"] / 1e8}... block reward: #{chain["reward"] / 1e8}"
 else
   p 'Lisk node disconnected, inactive, or not fully synchronized ...'
