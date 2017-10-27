@@ -40,7 +40,7 @@ module Lisk
       if peers["success"]
         return peers["peers"]
       else
-        return peers
+        return nil
       end
     end
 
@@ -52,6 +52,45 @@ module Lisk
     # Gets status of height, fee, milestone, blockreward and supply.
     def chain
       chain = @client.query_get "blocks/getStatus"
+    end
+
+    # Gets delegate by username.
+    def delegates_get_by_name user_name
+      params = { :username => user_name }
+      delegate = @client.query_get "delegates/get", params
+      if delegate["success"]
+        return delegate["delegate"]
+      else
+        return nil
+      end
+    end
+
+    # Gets delegate by public key.
+    def delegates_get_by_key public_key
+      params = { :publicKey => public_key }
+      delegate = @client.query_get "delegates/get", params
+      if delegate["success"]
+        return delegate["delegate"]
+      else
+        return nil
+      end
+    end
+
+    # Gets voters of delegate.
+    def delegates_voters public_key
+      params = { :publicKey => public_key }
+      voters = @client.query_get "delegates/voters", params
+      if voters["success"]
+        return voters["accounts"]
+      else
+        return nil
+      end
+    end
+
+    # Request the balance of an account.
+    def accounts_get_balance address
+      params = { :address => address }
+      balance = @client.query_get "accounts/getBalance", params
     end
 
     # Handles unimplemented methods

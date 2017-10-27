@@ -47,13 +47,58 @@ module Lisk
     end
 
     # Handles GET requests to the given Lisk Core API endpoint
-    def query_get endpoint
+    def query_get endpoint, params = nil
       if not @ssl
         # fixme "#{self}::#{__method__} Allow HTTPS requests"
         begin
           node = ::Net::HTTP.new @host, @port
           uri = URI.parse "http://#{host}:#{port}/api/#{endpoint}"
+          if not params.nil?
+            uri.query = URI.encode_www_form params
+          end
           request = ::Net::HTTP::Get.new uri
+          response = node.request request
+          result = JSON::parse response.body
+        rescue Timeout::Error => e
+          p "Can't connect to the Lisk node: Timeout!"
+        rescue Errno::EHOSTUNREACH => e
+          p "Can't connect to the Lisk node: Host Unreachable!"
+        rescue Errno::ECONNREFUSED => e
+          p "Can't connect to the Lisk node: Connection Refused!"
+        end
+      end
+    end
+
+    # Handles POST requests to the given Lisk Core API endpoint
+    def query_post endpoint, params
+      if not @ssl
+        # fixme "#{self}::#{__method__} Allow HTTPS requests"
+        begin
+          node = ::Net::HTTP.new @host, @port
+          uri = URI.parse "http://#{host}:#{port}/api/#{endpoint}"
+          uri.query = URI.encode_www_form params
+          request = ::Net::HTTP::POST.new uri
+          response = node.request request
+          result = JSON::parse response.body
+        rescue Timeout::Error => e
+          p "Can't connect to the Lisk node: Timeout!"
+        rescue Errno::EHOSTUNREACH => e
+          p "Can't connect to the Lisk node: Host Unreachable!"
+        rescue Errno::ECONNREFUSED => e
+          p "Can't connect to the Lisk node: Connection Refused!"
+        end
+      end
+    end
+
+    # Handles PUT requests to the given Lisk Core API endpoint
+    def query_put endpoint, params
+      if not @ssl
+        # fixme "#{self}::#{__method__} Allow HTTPS requests"
+        begin
+          node = ::Net::HTTP.new @host, @port
+          uri = URI.parse "http://#{host}:#{port}/api/#{endpoint}"
+          uri.query = URI.encode_www_form params
+          request = ::Net::HTTP::Put.new uri
           response = node.request request
           result = JSON::parse response.body
         rescue Timeout::Error => e
