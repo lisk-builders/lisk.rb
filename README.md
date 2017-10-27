@@ -34,16 +34,22 @@ Make sure to include lisk.rb in your scripts.
 require 'lisk'
 ```
 
-To get started, point the lisk.rb to any Lisk-API endpoint. By default, lisk.rb assumes a running Lisk node on localhost port 8000.
+To get started, point the lisk.rb to any Lisk-API endpoint. By default, lisk.rb assumes a running Lisk testnet node on localhost port 7000.
 
 ```ruby
-client = Lisk::Client.new "127.0.0.1", 8000
+client = Lisk::Client.new "127.0.0.1", 7000
+```
+
+Get access to the Lisk-0.8.0 legacy API (see [#4](https://github.com/4fryn/lisk.rb/issues/4)).
+
+```ruby
+legacy_api = Lisk::Legacy.new client
 ```
 
 For convenience, check if the Lisk node is connected, fully synchronized, and active by pinging it.
 
 ```ruby
-if client.ping
+if legacy_api.loader_status_ping
   # only do stuff if client is connected, fully synchronized, and active ...
 end
 ```
@@ -51,48 +57,28 @@ end
 Get the version of the connected Lisk node.
 
 ```ruby
-version = client.version
+version = legacy_api.peers_version
 p "Lisk node version #{version["version"]} build #{version["build"]}..."
 ```
 
 Get the status of the connected Lisk node.
 
 ```ruby
-status = client.status
+status = legacy_api.loader_status
 p "Lisk node is connected: #{status["success"]}... Blockchain loaded: #{status["loaded"]}..."
 ```
 
 Figure out if the node is still synchronizing.
 
 ```ruby
-syncing = client.sync
+syncing = legacy_api.loader_status_sync
 p "Lisk node is syncing: #{syncing["syncing"]}... #{syncing["blocks"]} remaining blocks to latest block #{syncing["height"]}..."
-```
-
-Let's have a look at the connected peers.
-
-```ruby
-peers = client.peers
-cond = 0
-disd = 0
-band = 0
-peers.each do | peer |
-  case peer["state"]
-  when 0
-    band += 1
-  when 1
-    disd += 1
-  when 2
-    cond += 1
-  end
-end
-p "Lisk node saw #{peers.count} peers... #{cond} connected, #{disd} disconnected, #{band} banned..."
 ```
 
 Get some global Lisk blockchain stats.
 
 ```ruby
-chain = client.chain
+chain = legacy_api.blocks_get_status
 p "Lisk chain latest block: #{chain["height"]}... total supply: #{chain["supply"] / 1e8}... block reward: #{chain["reward"] / 1e8}"
 ```
 

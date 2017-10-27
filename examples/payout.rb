@@ -10,7 +10,7 @@ client = Lisk::Client.new "127.0.0.1", 7000
 legacy_api = Lisk::Legacy.new client
 
 # Only proceed if the client is connected, active, and fully synchronized.
-if legacy_api.ping
+if legacy_api.loader_status_ping
 
   # Get the desired delegate by name.
   delegate = legacy_api.delegates_get_by_name "4fryn"

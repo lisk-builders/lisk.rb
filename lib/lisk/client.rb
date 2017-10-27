@@ -11,8 +11,8 @@ module Lisk
     # Host and port of the API endpoint.
     attr_accessor :host, :port, :ssl
 
-    # Initializes the Lisk HTTP client and defaults to localhost port 8000.
-    def initialize host = "127.0.0.1", port = 8000
+    # Initializes the Lisk HTTP client and defaults to localhost port 7000.
+    def initialize host = "127.0.0.1", port = 7000
       @host = host
       @port = port
       @ssl = false

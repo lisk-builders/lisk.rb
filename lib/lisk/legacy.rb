@@ -19,18 +19,18 @@ module Lisk
 
     # Get the status of last received block.
     # Returns true if block was received in the past 120 seconds.
-    def ping
+    def loader_status_ping
       ping = @client.query_get "loader/status/ping"
       ping["success"]
     end
 
     # Returns the sync status of the blockchain.
-    def status
+    def loader_status
       status = @client.query_get "loader/status"
     end
 
     # Get the synchronization status of the client.
-    def sync
+    def loader_status_sync
       sync = @client.query_get "loader/status/sync"
     end
 
@@ -45,12 +45,12 @@ module Lisk
     end
 
     # Gets version and build time.
-    def version
+    def peers_version
       version = @client.query_get "peers/version"
     end
 
     # Gets status of height, fee, milestone, blockreward and supply.
-    def chain
+    def blocks_get_status
       chain = @client.query_get "blocks/getStatus"
     end
 
