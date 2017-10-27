@@ -96,7 +96,7 @@ chain = client.chain
 p "Lisk chain latest block: #{chain["height"]}... total supply: #{chain["supply"] / 1e8}... block reward: #{chain["reward"] / 1e8}"
 ```
 
-To be continued, see `example.rb` for some examples.
+See `examples/*.rb` for more examples implementing the Lisk API.
 
 ## Development
 
