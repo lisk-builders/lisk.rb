@@ -6,6 +6,7 @@ module Lisk
   require "lisk/api"
   require "lisk/client"
   require "lisk/legacy"
+  require "lisk/tools"
 
   # Handles unimplemented methods
   def method_missing name, *args, &block

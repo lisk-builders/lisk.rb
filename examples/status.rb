@@ -3,52 +3,49 @@
 require 'lisk'
 
 # Try to connect a local Lisk client.
-client = Lisk::Client.new
+node = Lisk::Client.new
 
 # Configure host and port of the Lisk client.
-client = client.configure "127.0.0.1", 8000
+node = node.configure "127.0.0.1", 7000
 
 # Same as above, just in one line, let's stick to test network for now.
-client = Lisk::Client.new "127.0.0.1", 7000
-
-# The pre-1.0.0 legacy API connected to the client.
-legacy_api = Lisk::Legacy.new client
+node = Lisk::Client.new "127.0.0.1", 7000
 
 # Only proceed if the client is connected, active, and fully synchronized.
-if legacy_api.loader_status_ping
+if node.is_alive?
+
+  # Lisk tools wraps the raw API in meaningful methods.
+  lisk = Lisk::Tools.new node
 
   # Lisk version API example.
-  version = legacy_api.peers_version
-  p "Lisk node version #{version["version"]} build #{version["build"]}..."
+  version = lisk.get_version
+  commit = lisk.get_version_commit
+  build = lisk.get_version_build
+  p "Lisk node version #{version} commit #{commit} build #{build}..."
 
   # Lisk node status API example.
-  status = legacy_api.loader_status
-  p "Lisk node is connected: #{status["success"]}... Blockchain loaded: #{status["loaded"]}..."
+  connected = node.is_alive?
+  loaded = lisk.is_chain_loaded?
+  p "Lisk node is connected: #{connected}... Blockchain loaded: #{loaded}..."
 
   # Lisk node syncing API example.
-  syncing = legacy_api.loader_status_sync
-  p "Lisk node is syncing: #{syncing["syncing"]}... #{syncing["blocks"]} remaining blocks to latest block #{syncing["height"]}..."
+  synced = lisk.is_syncing?
+  blocks = lisk.get_remaining_blocks
+  height = lisk.get_best_block
+  p "Lisk node is syncing: #{synced}... #{blocks} remaining blocks to latest block #{height}..."
 
   # Lisk node peers API example.
-  peers = legacy_api.peers
-  cond = 0
-  disd = 0
-  band = 0
-  peers.each do | peer |
-    case peer["state"]
-    when 0
-      band += 1
-    when 1
-      disd += 1
-    when 2
-      cond += 1
-    end
-  end
-  p "Lisk node saw #{peers.count} peers... #{cond} connected, #{disd} disconnected, #{band} banned..."
+  cond = lisk.get_connected_peers.count
+  disd = lisk.get_disconnected_peers.count
+  band = lisk.get_banned_peers.count
+  all = lisk.get_peer_count
+  p "Lisk node saw #{all} peers... #{cond} connected, #{disd} disconnected, #{band} banned..."
 
   # Lisk blockchain API example.
-  chain = legacy_api.blocks_get_status
-  p "Lisk chain latest block: #{chain["height"]}... total supply: #{chain["supply"] / 1e8}... block reward: #{chain["reward"] / 1e8}"
+  chain_height = lisk.get_chain_best_block
+  block_reward = lisk.get_block_reward
+  total_supply = lisk.get_available_supply
+  p "Lisk chain latest block: #{chain_height}... total supply: #{total_supply / 1e8}... block reward: #{block_reward / 1e8}"
 
 else
   p 'Lisk node disconnected, inactive, or not fully synchronized ...'

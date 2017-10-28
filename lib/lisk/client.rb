@@ -9,7 +9,7 @@ module Lisk
   class Client
 
     # Host and port of the API endpoint.
-    attr_accessor :host, :port, :ssl
+    attr_accessor :host, :port, :ssl, :active
 
     # Initializes the Lisk HTTP client and defaults to localhost port 7000.
     def initialize host = "127.0.0.1", port = 7000
@@ -17,8 +17,10 @@ module Lisk
       @port = port
       @ssl = false
       if self.is_alive?
+        @active = true
         return self
       else
+        @active = false
         return nil
       end
     end
@@ -30,11 +32,14 @@ module Lisk
         @port = port
         @ssl = false
         if self.is_alive?
+          @active = true
           return self
         else
+          @active = false
           return nil
         end
       else
+        @active = false
         return nil
       end
     end
@@ -43,7 +48,7 @@ module Lisk
     # Returns true if block was received in the past 120 seconds.
     def is_alive?
       connected = self.query_get "loader/status/ping"
-      connected["success"]
+      @active = connected["success"]
     end
 
     # Handles GET requests to the given Lisk Core API endpoint
@@ -58,12 +63,16 @@ module Lisk
           end
           request = ::Net::HTTP::Get.new uri
           response = node.request request
+          @active = true
           result = JSON::parse response.body
         rescue Timeout::Error => e
+          @active = false
           p "Can't connect to the Lisk node: Timeout!"
         rescue Errno::EHOSTUNREACH => e
+          @active = false
           p "Can't connect to the Lisk node: Host Unreachable!"
         rescue Errno::ECONNREFUSED => e
+          @active = false
           p "Can't connect to the Lisk node: Connection Refused!"
         end
       end
@@ -80,12 +89,16 @@ module Lisk
           request = ::Net::HTTP::Post.new uri, header
           request.body = params.to_json
           response = node.request request
+          @active = true
           result = JSON::parse response.body
         rescue Timeout::Error => e
+          @active = false
           p "Can't connect to the Lisk node: Timeout!"
         rescue Errno::EHOSTUNREACH => e
+          @active = false
           p "Can't connect to the Lisk node: Host Unreachable!"
         rescue Errno::ECONNREFUSED => e
+          @active = false
           p "Can't connect to the Lisk node: Connection Refused!"
         end
       end
@@ -103,12 +116,16 @@ module Lisk
           request = ::Net::HTTP::Put.new uri, header
           request.body = params.to_json
           response = node.request request
+          @active = true
           result = JSON::parse response.body
         rescue Timeout::Error => e
+          @active = false
           p "Can't connect to the Lisk node: Timeout!"
         rescue Errno::EHOSTUNREACH => e
+          @active = false
           p "Can't connect to the Lisk node: Host Unreachable!"
         rescue Errno::ECONNREFUSED => e
+          @active = false
           p "Can't connect to the Lisk node: Connection Refused!"
         end
       end

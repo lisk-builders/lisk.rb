@@ -7,5 +7,5 @@ rm pkg/*.gem
 git add -A
 bundle exec rake install
 ruby examples/status.rb
-ruby examples/payout.rb
-ruby examples/legacy_api.rb
+# ruby examples/payout.rb
+# ruby examples/legacy_api.rb
