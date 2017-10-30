@@ -1,7 +1,7 @@
 # The Lisk API Ruby wrapper gem.
 module Lisk
 
-  # Implements legacy APIs of the Lisk Core pre-1.0.0 node.
+  # Implements raw legacy APIs of the Lisk Core pre-1.0.0 node.
   class Legacy
 
     # A "lisk/client" connecting to a Lisk Core API node.

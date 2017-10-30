@@ -1,184 +1,187 @@
+require "time"
+
 # The Lisk API Ruby wrapper gem.
 module Lisk
 
-  # Implements APIs of the Lisk Core node.
-  class API
+  # Helper functions to wrap raw legacy APIs into meaningul methods.
+  class API < Legacy
 
-    # A "lisk/client" connecting to a Lisk Core API node.
-    attr_accessor :client
-
-    # Initializing the API with a Lisk Core API client.
-    def initialize client
-      if not client.nil?
-        @client = client
-        return self
+    # Returns true if chain is syncing.
+    def is_syncing?
+      synced = self.loader_status_sync
+      if synced["success"]
+        return synced["syncing"]
       else
         return nil
       end
     end
 
-    #############################################
-    # https://github.com/4fryn/lisk.rb/issues/1 #
-    #############################################
-
-    # The "accounts" API
-    def accounts
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+    # Returns true if chain is loaded.
+    def is_chain_loaded?
+      loaded = self.loader_status
+      if loaded["success"]
+        return loaded["loaded"]
+      else
+        return nil
+      end
     end
 
-    # The "blocks" API
-    def blocks
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+    # Get the Lisk node version string.
+    def get_version
+      version = self.peers_version
+      if version["success"]
+        return version["version"]
+      else
+        return nil
+      end
     end
 
-    # The "dapps" API
-    def dapps
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+    # Get the Lisk node version build date.
+    def get_version_build
+      version = self.peers_version
+      if version["success"]
+        return version["build"]
+      else
+        return nil
+      end
     end
 
-    # The "delegates" API
-    def delegates
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+    # Get the Lisk node version commit.
+    def get_version_commit
+      version = self.peers_version
+      if version["success"]
+        return version["commit"]
+      else
+        return nil
+      end
     end
 
-    # The "delegates/forgers" API
-    def delegates_forgers
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+    # Get the height of the local best known block.
+    def get_best_block
+      synced = self.loader_status_sync
+      if synced["success"]
+        return synced["height"]
+      else
+        return nil
+      end
     end
 
-    # The "delegates/forging" API
-    def delegates_forging
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+    # Get the number of remaining local sync blocks.
+    def get_remaining_blocks
+      synced = self.loader_status_sync
+      if synced["success"]
+        return synced["blocks"]
+      else
+        return nil
+      end
     end
 
-    # The "node/constants" API
-    def node_constants
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+    # Get the global best block in the network.
+    def get_chain_best_block
+      blocks = self.blocks_get_height
+      if blocks["success"]
+        return blocks["height"]
+      else
+        return nil
+      end
     end
 
-    # The "node/status" API
-    def node_status
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+    # Get the broad hash.
+    def get_broadhash
+      blocks = self.blocks_get_status
+      if blocks["success"]
+        return blocks["broadhash"]
+      else
+        return nil
+      end
     end
 
-    # The "peers" API
-    def peers
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+    # Get the net hash.
+    def get_nethash
+      blocks = self.blocks_get_nethash
+      if blocks["success"]
+        return blocks["nethash"]
+      else
+        return nil
+      end
     end
 
-    # The "signatures" API
-    def signatures
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+    # Get the current epoch date.
+    def get_epoch
+      blocks = self.blocks_get_status
+      if blocks["success"]
+        epoch = Time.parse blocks["epoch"]
+        return epoch
+      else
+        return nil
+      end
     end
 
-    # The "transactions" API
-    def transactions
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+    # Get the current milestone.
+    def get_milestone
+      blocks = self.blocks_get_milestone
+      if blocks["success"]
+        return blocks["milestone"]
+      else
+        return nil
+      end
     end
 
-    # The "transactions/unsigned" API
-    def transactions_unsigned
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+    # Get the current block reward.
+    def get_block_reward
+      blocks = self.blocks_get_reward
+      if blocks["success"]
+        return blocks["reward"]
+      else
+        return nil
+      end
     end
 
-    # The "transactions/unconfirmed" API
-    def transactions_unconfirmed
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+    # Get the available supply.
+    def get_available_supply
+      blocks = self.blocks_get_supply
+      if blocks["success"]
+        return blocks["supply"]
+      else
+        return nil
+      end
     end
 
-    # The "transactions/unprocessed" API
-    def transactions_unprocessed
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+
+#{}"fee"=>10000000
+
+
+    # Get an array of all known peers.
+    def get_peers
+      peers = self.peers
     end
 
-    # The "votes" API
-    def votes
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+    # Get the number of all known peers.
+    def get_peer_count
+      peers = self.get_peers
+      if not peers.nil?
+        count = peers.count
+      else
+        count = 0
+      end
     end
 
-    # The "voters" API
-    def voters
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+    # Get an array of all connected peers.
+    def get_connected_peers
+      filter_by_state = { :state => 2 }
+      connected = self.peers filter_by_state
     end
 
-    # The "accounts" API
-    def accounts
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+    # Get an array of all disconnected peers.
+    def get_disconnected_peers
+      filter_by_state = { :state => 1 }
+      disconnected = self.peers filter_by_state
     end
 
-    # The "blocks" API
-    def blocks
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
-    end
-
-    # The "dapps" API
-    def dapps
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
-    end
-
-    # The "delegates" API
-    def delegates
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
-    end
-
-    # The "delegates/forgers" API
-    def delegates_forgers
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
-    end
-
-    # The "delegates/forging" API
-    def delegates_forging
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
-    end
-
-    # The "node/constants" API
-    def node_constants
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
-    end
-
-    # The "node/status" API
-    def node_status
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
-    end
-
-    # The "peers" API
-    def peers
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
-    end
-
-    # The "signatures" API
-    def signatures
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
-    end
-
-    # The "transactions" API
-    def transactions
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
-    end
-
-    # The "transactions/unsigned" API
-    def transactions_unsigned
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
-    end
-
-    # The "transactions/unconfirmed" API
-    def transactions_unconfirmed
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
-    end
-
-    # The "transactions/unprocessed" API
-    def transactions_unprocessed
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
-    end
-
-    # The "votes" API
-    def votes
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
-    end
-
-    # The "voters" API
-    def voters
-      todo "#{self}::#{__method__} UNIMPLEMENTED"
+    # Get an array of all banned peers.
+    def get_banned_peers
+      filter_by_state = { :state => 0 }
+      banned = self.peers filter_by_state
     end
 
     # Handles unimplemented methods

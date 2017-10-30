@@ -15,7 +15,7 @@ node = Lisk::Client.new "127.0.0.1", 7000
 if node.is_alive?
 
   # Lisk tools wraps the raw API in meaningful methods.
-  lisk = Lisk::Tools.new node
+  lisk = Lisk::API.new node
 
   # Lisk version API example.
   version = lisk.get_version
