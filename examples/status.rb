@@ -15,36 +15,36 @@ node = Lisk::Client.new "127.0.0.1", 7000
 if node.is_alive?
 
   # Lisk tools wraps the raw API in meaningful methods.
-  lisk = Lisk::API.new node
+  api = Lisk::API.new node
 
   # Lisk version API example.
-  version = lisk.get_version
-  commit = lisk.get_version_commit
-  build = lisk.get_version_build
+  version = api.get_version
+  commit = api.get_version_commit
+  build = api.get_version_build
   p "Lisk node version #{version} commit #{commit} build #{build}..."
 
   # Lisk node status API example.
   connected = node.is_alive?
-  loaded = lisk.is_chain_loaded?
+  loaded = api.is_chain_loaded?
   p "Lisk node is connected: #{connected}... Blockchain loaded: #{loaded}..."
 
   # Lisk node syncing API example.
-  synced = lisk.is_syncing?
-  blocks = lisk.get_remaining_blocks
-  height = lisk.get_best_block
+  synced = api.is_syncing?
+  blocks = api.get_remaining_blocks
+  height = api.get_best_block
   p "Lisk node is syncing: #{synced}... #{blocks} remaining blocks to latest block #{height}..."
 
   # Lisk node peers API example.
-  cond = lisk.get_connected_peers.count
-  disd = lisk.get_disconnected_peers.count
-  band = lisk.get_banned_peers.count
-  all = lisk.get_peer_count
+  cond = api.get_connected_peers.count
+  disd = api.get_disconnected_peers.count
+  band = api.get_banned_peers.count
+  all = api.get_peer_count
   p "Lisk node saw #{all} peers... #{cond} connected, #{disd} disconnected, #{band} banned..."
 
   # Lisk blockchain API example.
-  chain_height = lisk.get_chain_best_block
-  block_reward = lisk.get_block_reward
-  total_supply = lisk.get_available_supply
+  chain_height = api.get_chain_best_block
+  block_reward = api.get_block_reward
+  total_supply = api.get_available_supply
   p "Lisk chain latest block: #{chain_height}... total supply: #{total_supply / 1e8}... block reward: #{block_reward / 1e8}"
 
 else
