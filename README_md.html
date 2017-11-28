@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>README - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-Lisk.rb">Lisk.rb</a>
+    <li><a href="#label-Note+before+using">Note before using</a>
+    <li><a href="#label-Installation">Installation</a>
+    <li><a href="#label-Usage">Usage</a>
+    <li><a href="#label-Development">Development</a>
+    <li><a href="#label-Contributing">Contributing</a>
+    <li><a href="#label-License">License</a>
+    <li><a href="#label-Code+of+Conduct">Code of Conduct</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./CODE_OF_CONDUCT_md.html">CODE_OF_CONDUCT</a>
+  
+    <li><a href="./Gemfile.html">Gemfile</a>
+  
+    <li><a href="./Gemfile_lock.html">Gemfile.lock</a>
+  
+    <li><a href="./LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="./README_md.html">README</a>
+  
+    <li><a href="./Rakefile.html">Rakefile</a>
+  
+    <li><a href="./bin/debug.html">debug</a>
+  
+    <li><a href="./bin/setup.html">setup</a>
+  
+    <li><a href="./lisk_gemspec.html">lisk.gemspec</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page README.md">
+
+<h1 id="label-Lisk.rb">Lisk.rb<span><a href="#label-Lisk.rb">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>A simple Ruby wrapper for the <a href="Lisk.html">Lisk</a> API. 💎</p>
+
+<p><img src="examples/4fryn-lisk-rb.gif"></p>
+
+<h2 id="label-Note+before+using">Note before using<span><a href="#label-Note+before+using">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>This is very early work-in-progress. The idea is to publish this
+<code>gem</code> as soon as it is fully compatible with <a
+href="Lisk.html">Lisk</a> Core 1.0.0, which, however, is not released yet.
+The current implementation of the lisk.rb gem is pure minimal by design and
+barely allows checking the node status.</p>
+
+<p>API Implemententation Status:</p>
+<ul><li>
+<p><code>Lisk::Legacy</code> 48/62 APIs for <a href="Lisk.html">Lisk</a> Core
+0.8.0+ (<a href="https://github.com/lisk-builders/lisk.rb/issues/4">#4</a>)</p>
+</li><li>
+<p><code>Lisk::Raw</code> 0/34 APIs for <a href="Lisk.html">Lisk</a> Core
+1.0.0+ (<a href="https://github.com/lisk-builders/lisk.rb/issues/1">#1</a>)</p>
+</li></ul>
+
+<h2 id="label-Installation">Installation<span><a href="#label-Installation">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Add this line to your application&#39;s Gemfile:</p>
+
+<pre class="ruby"><span class="ruby-identifier">gem</span> <span class="ruby-string">&#39;lisk&#39;</span>
+</pre>
+
+<p>And then execute:</p>
+
+<pre>$ bundle</pre>
+
+<p>Or install it yourself as:</p>
+
+<pre>$ gem install lisk</pre>
+
+<h2 id="label-Usage">Usage<span><a href="#label-Usage">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Make sure to include lisk.rb in your scripts.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;lisk&#39;</span>
+</pre>
+
+<p>To get started, point the lisk.rb to any Lisk-API endpoint. By default,
+lisk.rb assumes a running <a href="Lisk.html">Lisk</a> testnet node on
+localhost port 7000.</p>
+
+<pre class="ruby"><span class="ruby-identifier">node</span> = <span class="ruby-constant">Lisk</span><span class="ruby-operator">::</span><span class="ruby-constant">Client</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&quot;127.0.0.1&quot;</span>, <span class="ruby-value">7000</span>
+</pre>
+
+<p>For convenience, check if the <a href="Lisk.html">Lisk</a> node is
+connected, fully synchronized, and active by pinging it.</p>
+
+<pre class="ruby"><span class="ruby-keyword">if</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">is_alive?</span>
+  <span class="ruby-comment"># only do stuff if client is connected, fully synchronized, and active ...</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Get access to the Lisk-0.8.0 legacy API (see <a
+href="https://github.com/lisk-builders/lisk.rb/issues/4">#4</a>).</p>
+
+<pre class="ruby"><span class="ruby-identifier">lisk</span> = <span class="ruby-constant">Lisk</span><span class="ruby-operator">::</span><span class="ruby-constant">API</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">node</span>
+</pre>
+
+<p>Get the version of the connected <a href="Lisk.html">Lisk</a> node.</p>
+
+<pre class="ruby"><span class="ruby-identifier">version</span> = <span class="ruby-identifier">lisk</span>.<span class="ruby-identifier">get_version</span>
+<span class="ruby-identifier">build</span> = <span class="ruby-identifier">lisk</span>.<span class="ruby-identifier">get_version_build</span>
+<span class="ruby-identifier">p</span> <span class="ruby-node">&quot;Lisk node version #{version} build #{build}...&quot;</span>
+</pre>
+
+<p>Get the status of the connected <a href="Lisk.html">Lisk</a> node.</p>
+
+<pre class="ruby"><span class="ruby-identifier">connected</span> = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">is_alive?</span>
+<span class="ruby-identifier">loaded</span> = <span class="ruby-identifier">lisk</span>.<span class="ruby-identifier">is_chain_loaded?</span>
+<span class="ruby-identifier">p</span> <span class="ruby-node">&quot;Lisk node is connected: #{connected}... Blockchain loaded: #{loaded}...&quot;</span>
+</pre>
+
+<p>Figure out if the node is still synchronizing.</p>
+
+<pre class="ruby"><span class="ruby-identifier">syncing</span> = <span class="ruby-identifier">lisk</span>.<span class="ruby-identifier">is_syncing?</span>
+<span class="ruby-identifier">remaining</span> = <span class="ruby-identifier">lisk</span>.<span class="ruby-identifier">get_remaining_blocks</span>
+<span class="ruby-identifier">best</span> = <span class="ruby-identifier">lisk</span>.<span class="ruby-identifier">get_chain_best_block</span>
+<span class="ruby-identifier">p</span> <span class="ruby-node">&quot;Lisk node is syncing: #{syncing}... #{remaining} remaining blocks to latest block #{best}...&quot;</span>
+</pre>
+
+<p>Get some global <a href="Lisk.html">Lisk</a> blockchain stats.</p>
+
+<pre class="ruby"><span class="ruby-identifier">height</span> = <span class="ruby-identifier">lisk</span>.<span class="ruby-identifier">get_best_block</span>
+<span class="ruby-identifier">reward</span> = <span class="ruby-identifier">lisk</span>.<span class="ruby-identifier">get_block_reward</span> <span class="ruby-operator">/</span> <span class="ruby-value">1e8</span>
+<span class="ruby-identifier">supply</span> = <span class="ruby-identifier">lisk</span>.<span class="ruby-identifier">get_available_supply</span> <span class="ruby-operator">/</span> <span class="ruby-value">1e8</span>
+<span class="ruby-identifier">p</span> <span class="ruby-node">&quot;Lisk chain latest block: #{height}... total supply: #{supply}... block reward: #{reward}&quot;</span>
+</pre>
+
+<p>See <code>examples/*.rb</code> for more examples implementing the <a
+href="Lisk.html">Lisk</a> API.</p>
+
+<h2 id="label-Development">Development<span><a href="#label-Development">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>After checking out the repo, run <code>bin/setup</code> to install
+dependencies. Then, run <code>rake spec</code> to run the tests. You can
+also run <code>bin/console</code> for an interactive prompt that will allow
+you to experiment.</p>
+
+<p>To install this gem onto your local machine, run <code>bundle exec rake
+install</code>. To release a new version, update the version number in
+<code>version.rb</code>, and then run <code>bundle exec rake
+release</code>, which will create a git tag for the version, push git
+commits and tags, and push the <code>.gem</code> file to <a
+href="https://rubygems.org">rubygems.org</a>.</p>
+
+<h2 id="label-Contributing">Contributing<span><a href="#label-Contributing">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Bug reports and pull requests are welcome on GitHub at <a
+href="https://github.com/lisk-builders/lisk.rb">github.com/lisk-builders/lisk.rb</a>.
+This project is intended to be a safe, welcoming space for collaboration,
+and contributors are expected to adhere to the <a
+href="http://contributor-covenant.org">Contributor Covenant</a> code of
+conduct.</p>
+
+<h2 id="label-License">License<span><a href="#label-License">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>The gem is available as open source under the terms of the <a
+href="http://opensource.org/licenses/MIT">MIT License</a>.</p>
+
+<h2 id="label-Code+of+Conduct">Code of Conduct<span><a href="#label-Code+of+Conduct">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Everyone interacting in the Lisk.rb project’s codebases, issue trackers,
+chat rooms and mailing lists is expected to follow the <a
+href="https://github.com/lisk-builders/lisk.rb/blob/master/CODE_OF_CONDUCT.md">code
+of conduct</a>.</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

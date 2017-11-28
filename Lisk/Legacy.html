@@ -1,0 +1,2489 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Lisk::Legacy - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-accounts">#accounts</a>
+    
+    <li ><a href="#method-i-accounts_delegates">#accounts_delegates</a>
+    
+    <li ><a href="#method-i-accounts_delegates_get_by_address">#accounts_delegates_get_by_address</a>
+    
+    <li ><a href="#method-i-accounts_delegates_put">#accounts_delegates_put</a>
+    
+    <li ><a href="#method-i-accounts_generate_public_key">#accounts_generate_public_key</a>
+    
+    <li ><a href="#method-i-accounts_get_balance">#accounts_get_balance</a>
+    
+    <li ><a href="#method-i-accounts_get_public_key">#accounts_get_public_key</a>
+    
+    <li ><a href="#method-i-accounts_open">#accounts_open</a>
+    
+    <li ><a href="#method-i-blocks">#blocks</a>
+    
+    <li ><a href="#method-i-blocks_get_by_id">#blocks_get_by_id</a>
+    
+    <li ><a href="#method-i-blocks_get_fee">#blocks_get_fee</a>
+    
+    <li ><a href="#method-i-blocks_get_fees">#blocks_get_fees</a>
+    
+    <li ><a href="#method-i-blocks_get_height">#blocks_get_height</a>
+    
+    <li ><a href="#method-i-blocks_get_milestone">#blocks_get_milestone</a>
+    
+    <li ><a href="#method-i-blocks_get_nethash">#blocks_get_nethash</a>
+    
+    <li ><a href="#method-i-blocks_get_reward">#blocks_get_reward</a>
+    
+    <li ><a href="#method-i-blocks_get_status">#blocks_get_status</a>
+    
+    <li ><a href="#method-i-blocks_get_supply">#blocks_get_supply</a>
+    
+    <li ><a href="#method-i-dapps">#dapps</a>
+    
+    <li ><a href="#method-i-dapps_categories">#dapps_categories</a>
+    
+    <li ><a href="#method-i-dapps_get_by_id">#dapps_get_by_id</a>
+    
+    <li ><a href="#method-i-dapps_install">#dapps_install</a>
+    
+    <li ><a href="#method-i-dapps_installed">#dapps_installed</a>
+    
+    <li ><a href="#method-i-dapps_installed_ids">#dapps_installed_ids</a>
+    
+    <li ><a href="#method-i-dapps_installing">#dapps_installing</a>
+    
+    <li ><a href="#method-i-dapps_launch">#dapps_launch</a>
+    
+    <li ><a href="#method-i-dapps_launched">#dapps_launched</a>
+    
+    <li ><a href="#method-i-dapps_put">#dapps_put</a>
+    
+    <li ><a href="#method-i-dapps_search">#dapps_search</a>
+    
+    <li ><a href="#method-i-dapps_stop">#dapps_stop</a>
+    
+    <li ><a href="#method-i-dapps_uninstall">#dapps_uninstall</a>
+    
+    <li ><a href="#method-i-dapps_uninstalling">#dapps_uninstalling</a>
+    
+    <li ><a href="#method-i-delegates">#delegates</a>
+    
+    <li ><a href="#method-i-delegates_count">#delegates_count</a>
+    
+    <li ><a href="#method-i-delegates_forging_disable">#delegates_forging_disable</a>
+    
+    <li ><a href="#method-i-delegates_forging_enable">#delegates_forging_enable</a>
+    
+    <li ><a href="#method-i-delegates_forging_get_forged_by_account">#delegates_forging_get_forged_by_account</a>
+    
+    <li ><a href="#method-i-delegates_get_by_key">#delegates_get_by_key</a>
+    
+    <li ><a href="#method-i-delegates_get_by_name">#delegates_get_by_name</a>
+    
+    <li ><a href="#method-i-delegates_get_next_forgers">#delegates_get_next_forgers</a>
+    
+    <li ><a href="#method-i-delegates_put">#delegates_put</a>
+    
+    <li ><a href="#method-i-delegates_search">#delegates_search</a>
+    
+    <li ><a href="#method-i-delegates_voters">#delegates_voters</a>
+    
+    <li ><a href="#method-i-loader_status">#loader_status</a>
+    
+    <li ><a href="#method-i-loader_status_ping">#loader_status_ping</a>
+    
+    <li ><a href="#method-i-loader_status_sync">#loader_status_sync</a>
+    
+    <li ><a href="#method-i-method_missing">#method_missing</a>
+    
+    <li ><a href="#method-i-multisignatures_accounts">#multisignatures_accounts</a>
+    
+    <li ><a href="#method-i-multisignatures_pending">#multisignatures_pending</a>
+    
+    <li ><a href="#method-i-multisignatures_put">#multisignatures_put</a>
+    
+    <li ><a href="#method-i-multisignatures_sign">#multisignatures_sign</a>
+    
+    <li ><a href="#method-i-peers">#peers</a>
+    
+    <li ><a href="#method-i-peers_get">#peers_get</a>
+    
+    <li ><a href="#method-i-peers_version">#peers_version</a>
+    
+    <li ><a href="#method-i-signatures_fee">#signatures_fee</a>
+    
+    <li ><a href="#method-i-signatures_put">#signatures_put</a>
+    
+    <li ><a href="#method-i-transactions">#transactions</a>
+    
+    <li ><a href="#method-i-transactions_get_by_id">#transactions_get_by_id</a>
+    
+    <li ><a href="#method-i-transactions_put">#transactions_put</a>
+    
+    <li ><a href="#method-i-transactions_queued">#transactions_queued</a>
+    
+    <li ><a href="#method-i-transactions_queued_get_by_id">#transactions_queued_get_by_id</a>
+    
+    <li ><a href="#method-i-transactions_unconfirmed">#transactions_unconfirmed</a>
+    
+    <li ><a href="#method-i-transactions_unconfirmed_get_by_id">#transactions_unconfirmed_get_by_id</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Lisk::Legacy">
+  <h1 id="class-Lisk::Legacy" class="class">
+    class Lisk::Legacy
+  </h1>
+
+  <section class="description">
+    
+<p>Implements raw legacy APIs of the <a href="../Lisk.html">Lisk</a> Core
+pre-1.0.0 node.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-client" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">client</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>A “lisk/client” connecting to a <a href="../Lisk.html">Lisk</a> Core <a
+href="API.html">API</a> node.</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(client)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Initializing the legacy <a href="API.html">API</a> with a legacy <a
+href="../Lisk.html">Lisk</a> Core <a href="API.html">API</a> client.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span> <span class="ruby-identifier">client</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">client</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-ivar">@client</span> = <span class="ruby-identifier">client</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-accounts" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">accounts</span><span
+            class="method-args">(address)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns account information of an address. `GET /accounts?address=address`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="accounts-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">accounts</span> <span class="ruby-identifier">address</span>
+  <span class="ruby-identifier">params</span> = { <span class="ruby-value">:address</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">address</span> }
+  <span class="ruby-identifier">account</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;accounts&quot;</span>, <span class="ruby-identifier">params</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-accounts_delegates" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">accounts_delegates</span><span
+            class="method-args">(address)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get votes by account wallet address. `GET
+/accounts/delegates/?address=address`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="accounts_delegates-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 303</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">accounts_delegates</span> <span class="ruby-identifier">address</span>
+  <span class="ruby-identifier">params</span> = { <span class="ruby-value">:address</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">address</span> }
+  <span class="ruby-identifier">account</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;accounts/delegates&quot;</span>, <span class="ruby-identifier">params</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-accounts_delegates_get_by_address" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">accounts_delegates_get_by_address</span><span
+            class="method-args">(address)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns delegate vote accounts by address. `GET
+/accounts/delegates?address=address`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="accounts_delegates_get_by_address-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">accounts_delegates_get_by_address</span> <span class="ruby-identifier">address</span>
+  <span class="ruby-identifier">params</span> = { <span class="ruby-value">:address</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">address</span> }
+  <span class="ruby-identifier">delegate</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;accounts/delegates&quot;</span>, <span class="ruby-identifier">params</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-accounts_delegates_put" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">accounts_delegates_put</span><span
+            class="method-args">(votes)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Vote for the selected delegates. Maximum of 33 delegates at once. `PUT
+/accounts/delegates`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="accounts_delegates_put-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">accounts_delegates_put</span> <span class="ruby-identifier">votes</span>
+  <span class="ruby-identifier">delegate</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_put</span> <span class="ruby-string">&quot;accounts/delegates&quot;</span>, <span class="ruby-identifier">votes</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-accounts_generate_public_key" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">accounts_generate_public_key</span><span
+            class="method-args">(secret)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the public key of the provided secret key. `POST
+/accounts/generatePublicKey`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="accounts_generate_public_key-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">accounts_generate_public_key</span> <span class="ruby-identifier">secret</span>
+  <span class="ruby-identifier">params</span> = { <span class="ruby-value">:secret</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">secret</span> }
+  <span class="ruby-identifier">public_key</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_post</span> <span class="ruby-string">&quot;accounts/generatePublicKey&quot;</span>, <span class="ruby-identifier">params</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-accounts_get_balance" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">accounts_get_balance</span><span
+            class="method-args">(address)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Request the balance of an account. `GET
+/accounts/getBalance?address=address`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="accounts_get_balance-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">accounts_get_balance</span> <span class="ruby-identifier">address</span>
+  <span class="ruby-identifier">params</span> = { <span class="ruby-value">:address</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">address</span> }
+  <span class="ruby-identifier">balance</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;accounts/getBalance&quot;</span>, <span class="ruby-identifier">params</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-accounts_get_public_key" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">accounts_get_public_key</span><span
+            class="method-args">(address)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the public key of an account. If the account does not exist the <a
+href="API.html">API</a> call will return an error. `GET
+/accounts/getPublicKey?address=address`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="accounts_get_public_key-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">accounts_get_public_key</span> <span class="ruby-identifier">address</span>
+  <span class="ruby-identifier">params</span> = { <span class="ruby-value">:address</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">address</span> }
+  <span class="ruby-identifier">public_key</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;accounts/getPublicKey&quot;</span>, <span class="ruby-identifier">params</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-accounts_open" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">accounts_open</span><span
+            class="method-args">(secret)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Request information about an account. `POST /accounts/open`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="accounts_open-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">accounts_open</span> <span class="ruby-identifier">secret</span>
+  <span class="ruby-identifier">params</span> = { <span class="ruby-value">:secret</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">secret</span> }
+  <span class="ruby-identifier">account</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_post</span> <span class="ruby-string">&quot;accounts/open&quot;</span>, <span class="ruby-identifier">params</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">account</span>[<span class="ruby-string">&quot;success&quot;</span>]
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">account</span>[<span class="ruby-string">&quot;account&quot;</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-blocks" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">blocks</span><span
+            class="method-args">(filter = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Gets all blocks by provided filter(s). `GET
+/blocks?generatorPublicKey=generatorPublicKey&amp;height=height&amp;previousBlock=previousBlock&amp;totalAmount=totalAmount&amp;totalFee=totalFee&amp;limit=limit&amp;offset=offset&amp;orderBy=orderBy`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="blocks-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 167</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">blocks</span> <span class="ruby-identifier">filter</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">blocks</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;blocks&quot;</span>, <span class="ruby-identifier">filter</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">blocks</span>[<span class="ruby-string">&quot;success&quot;</span>]
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">blocks</span>[<span class="ruby-string">&quot;blocks&quot;</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-blocks_get_by_id" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">blocks_get_by_id</span><span
+            class="method-args">(id)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Gets block by provided id. `GET /blocks/get?id=id`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="blocks_get_by_id-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 178</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">blocks_get_by_id</span> <span class="ruby-identifier">id</span>
+  <span class="ruby-identifier">params</span> = { <span class="ruby-value">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">id</span> }
+  <span class="ruby-identifier">block</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;blocks/get&quot;</span>, <span class="ruby-identifier">params</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-blocks_get_fee" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">blocks_get_fee</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get transaction fee for sending “normal” transactions. `GET /blocks/getFee`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="blocks_get_fee-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 185</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">blocks_get_fee</span>
+  <span class="ruby-identifier">fee</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;blocks/getFee&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-blocks_get_fees" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">blocks_get_fees</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get transaction fee for all types of transactions. `GET /blocks/getFees`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="blocks_get_fees-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 191</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">blocks_get_fees</span>
+  <span class="ruby-identifier">fees</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;blocks/getFees&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-blocks_get_height" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">blocks_get_height</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Gets the blockchain height of the client. `GET /blocks/getHeight`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="blocks_get_height-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 209</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">blocks_get_height</span>
+  <span class="ruby-identifier">height</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;blocks/getHeight&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-blocks_get_milestone" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">blocks_get_milestone</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Gets the milestone of the blockchain on a client. `GET
+/blocks/getMilestone`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="blocks_get_milestone-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 227</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">blocks_get_milestone</span>
+  <span class="ruby-identifier">milestone</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;blocks/getMilestone&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-blocks_get_nethash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">blocks_get_nethash</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Gets the nethash of the blockchain on a client. `GET /blocks/getNethash`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="blocks_get_nethash-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 221</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">blocks_get_nethash</span>
+  <span class="ruby-identifier">nethash</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;blocks/getNethash&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-blocks_get_reward" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">blocks_get_reward</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Gets the forging reward for blocks. `GET /blocks/getReward`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="blocks_get_reward-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 197</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">blocks_get_reward</span>
+  <span class="ruby-identifier">reward</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;blocks/getReward&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-blocks_get_status" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">blocks_get_status</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Gets status of height, fee, milestone, blockreward and supply. `GET
+/blocks/getStatus`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="blocks_get_status-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 215</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">blocks_get_status</span>
+  <span class="ruby-identifier">status</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;blocks/getStatus&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-blocks_get_supply" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">blocks_get_supply</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Gets the total amount of <a href="../Lisk.html">Lisk</a> in circulation
+`GET /blocks/getSupply`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="blocks_get_supply-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 203</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">blocks_get_supply</span>
+  <span class="ruby-identifier">supply</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;blocks/getSupply&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dapps" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dapps</span><span
+            class="method-args">(filter)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>`GET
+/dapps?category=category&amp;name=name&amp;type=type&amp;link=link&amp;limit=limit&amp;offset=offset&amp;orderBy=orderBy`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="dapps-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 358</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dapps</span> <span class="ruby-identifier">filter</span>
+  <span class="ruby-identifier">todo</span> <span class="ruby-node">&quot;#{self}::#{__method__} UNIMPLEMENTED&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dapps_categories" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dapps_categories</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>`GET /dapps/categories`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="dapps_categories-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 413</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dapps_categories</span>
+  <span class="ruby-identifier">todo</span> <span class="ruby-node">&quot;#{self}::#{__method__} UNIMPLEMENTED&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dapps_get_by_id" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dapps_get_by_id</span><span
+            class="method-args">(id)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>`GET /dapps/get?id=id`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="dapps_get_by_id-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 363</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dapps_get_by_id</span> <span class="ruby-identifier">id</span>
+  <span class="ruby-identifier">todo</span> <span class="ruby-node">&quot;#{self}::#{__method__} UNIMPLEMENTED&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dapps_install" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dapps_install</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>`POST /dapps/install`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="dapps_install-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 373</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dapps_install</span>
+  <span class="ruby-identifier">todo</span> <span class="ruby-node">&quot;#{self}::#{__method__} UNIMPLEMENTED&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dapps_installed" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dapps_installed</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>`GET /dapps/installed`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="dapps_installed-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 378</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dapps_installed</span>
+  <span class="ruby-identifier">todo</span> <span class="ruby-node">&quot;#{self}::#{__method__} UNIMPLEMENTED&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dapps_installed_ids" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dapps_installed_ids</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>`GET /dapps/installedIds`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="dapps_installed_ids-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 383</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dapps_installed_ids</span>
+  <span class="ruby-identifier">todo</span> <span class="ruby-node">&quot;#{self}::#{__method__} UNIMPLEMENTED&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dapps_installing" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dapps_installing</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>`GET /dapps/installing`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="dapps_installing-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 398</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dapps_installing</span>
+  <span class="ruby-identifier">todo</span> <span class="ruby-node">&quot;#{self}::#{__method__} UNIMPLEMENTED&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dapps_launch" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dapps_launch</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>`POST /dapps/launch`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="dapps_launch-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 393</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dapps_launch</span>
+  <span class="ruby-identifier">todo</span> <span class="ruby-node">&quot;#{self}::#{__method__} UNIMPLEMENTED&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dapps_launched" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dapps_launched</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>`GET /dapps/launched`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="dapps_launched-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 408</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dapps_launched</span>
+  <span class="ruby-identifier">todo</span> <span class="ruby-node">&quot;#{self}::#{__method__} UNIMPLEMENTED&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dapps_put" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dapps_put</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>`PUT /dapps`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="dapps_put-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 353</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dapps_put</span>
+  <span class="ruby-identifier">todo</span> <span class="ruby-node">&quot;#{self}::#{__method__} UNIMPLEMENTED&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dapps_search" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dapps_search</span><span
+            class="method-args">(query)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>`GET /dapps/search?q=q&amp;category=category&amp;installed=installed`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="dapps_search-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 368</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dapps_search</span> <span class="ruby-identifier">query</span>
+  <span class="ruby-identifier">todo</span> <span class="ruby-node">&quot;#{self}::#{__method__} UNIMPLEMENTED&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dapps_stop" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dapps_stop</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>`POST /dapps/stop`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="dapps_stop-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 418</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dapps_stop</span>
+  <span class="ruby-identifier">todo</span> <span class="ruby-node">&quot;#{self}::#{__method__} UNIMPLEMENTED&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dapps_uninstall" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dapps_uninstall</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>`POST /dapps/uninstall`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="dapps_uninstall-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 388</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dapps_uninstall</span>
+  <span class="ruby-identifier">todo</span> <span class="ruby-node">&quot;#{self}::#{__method__} UNIMPLEMENTED&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dapps_uninstalling" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dapps_uninstalling</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>`GET /dapps/uninstalling`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="dapps_uninstalling-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 403</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dapps_uninstalling</span>
+  <span class="ruby-identifier">todo</span> <span class="ruby-node">&quot;#{self}::#{__method__} UNIMPLEMENTED&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delegates" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delegates</span><span
+            class="method-args">(filter = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Gets list of delegates by provided filter. `GET
+/delegates?limit=limit&amp;offset=offset&amp;orderBy=orderBy`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="delegates-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 251</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delegates</span> <span class="ruby-identifier">filter</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">delegates</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;delegates&quot;</span>, <span class="ruby-identifier">filter</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">delegates</span>[<span class="ruby-string">&quot;success&quot;</span>]
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">delegates</span>[<span class="ruby-string">&quot;delegates&quot;</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delegates_count" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delegates_count</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get total count of registered delegates. `GET /delegates/count`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="delegates_count-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 297</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delegates_count</span>
+  <span class="ruby-identifier">count</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;delegates/count&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delegates_forging_disable" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delegates_forging_disable</span><span
+            class="method-args">(secret)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Disables forging for a delegate on the client node. `POST
+/delegates/forging/disable`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="delegates_forging_disable-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 329</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delegates_forging_disable</span> <span class="ruby-identifier">secret</span>
+  <span class="ruby-identifier">params</span> = { <span class="ruby-value">:secret</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">secret</span> }
+  <span class="ruby-identifier">count</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_post</span> <span class="ruby-string">&quot;delegates/forging/disable&quot;</span>, <span class="ruby-identifier">params</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delegates_forging_enable" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delegates_forging_enable</span><span
+            class="method-args">(secret)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Enables forging for a delegate on the client node. `POST
+/delegates/forging/enable`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="delegates_forging_enable-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 322</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delegates_forging_enable</span> <span class="ruby-identifier">secret</span>
+  <span class="ruby-identifier">params</span> = { <span class="ruby-value">:secret</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">secret</span> }
+  <span class="ruby-identifier">count</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_post</span> <span class="ruby-string">&quot;delegates/forging/enable&quot;</span>, <span class="ruby-identifier">params</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delegates_forging_get_forged_by_account" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delegates_forging_get_forged_by_account</span><span
+            class="method-args">(public_key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get amount of <a href="../Lisk.html">Lisk</a> forged by an account. `GET
+/delegates/forging/getForgedByAccount?generatorPublicKey=generatorPublicKey`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="delegates_forging_get_forged_by_account-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 336</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delegates_forging_get_forged_by_account</span> <span class="ruby-identifier">public_key</span>
+  <span class="ruby-identifier">params</span> = { <span class="ruby-value">:generatorPublicKey</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">public_key</span> }
+  <span class="ruby-identifier">forged</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;delegates/forging/getForgedByAccount&quot;</span>, <span class="ruby-identifier">params</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delegates_get_by_key" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delegates_get_by_key</span><span
+            class="method-args">(public_key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Gets delegate by public key. `GET /delegates/get?publicKey=publicKey`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="delegates_get_by_key-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 262</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delegates_get_by_key</span> <span class="ruby-identifier">public_key</span>
+  <span class="ruby-identifier">params</span> = { <span class="ruby-value">:publicKey</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">public_key</span> }
+  <span class="ruby-identifier">delegate</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;delegates/get&quot;</span>, <span class="ruby-identifier">params</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">delegate</span>[<span class="ruby-string">&quot;success&quot;</span>]
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">delegate</span>[<span class="ruby-string">&quot;delegate&quot;</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delegates_get_by_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delegates_get_by_name</span><span
+            class="method-args">(user_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Gets delegate by username. `GET /delegates/get?username=username`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="delegates_get_by_name-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 274</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delegates_get_by_name</span> <span class="ruby-identifier">user_name</span>
+  <span class="ruby-identifier">params</span> = { <span class="ruby-value">:username</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user_name</span> }
+  <span class="ruby-identifier">delegate</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;delegates/get&quot;</span>, <span class="ruby-identifier">params</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">delegate</span>[<span class="ruby-string">&quot;success&quot;</span>]
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">delegate</span>[<span class="ruby-string">&quot;delegate&quot;</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delegates_get_next_forgers" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delegates_get_next_forgers</span><span
+            class="method-args">(limit = 10)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get next delegate lining up to forge. `GET
+/delegates/getNextForgers?limit=limit`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="delegates_get_next_forgers-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 343</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delegates_get_next_forgers</span> <span class="ruby-identifier">limit</span> = <span class="ruby-value">10</span>
+  <span class="ruby-identifier">params</span> = { <span class="ruby-value">:limit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">limit</span> }
+  <span class="ruby-identifier">forgers</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;delegates/getNextForgers&quot;</span>, <span class="ruby-identifier">params</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delegates_put" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delegates_put</span><span
+            class="method-args">(delegate)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Puts request to create a delegate. `PUT /delegates`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="delegates_put-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 245</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delegates_put</span> <span class="ruby-identifier">delegate</span>
+  <span class="ruby-identifier">delegate</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_put</span> <span class="ruby-string">&quot;delegates&quot;</span>, <span class="ruby-identifier">delegate</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delegates_search" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delegates_search</span><span
+            class="method-args">(query)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Search for Delegates by “fuzzy” username. `GET
+/delegates/search?q=username&amp;orderBy=producedblocks:desc`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="delegates_search-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 286</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delegates_search</span> <span class="ruby-identifier">query</span>
+  <span class="ruby-identifier">delegates</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;delegates/search&quot;</span>, <span class="ruby-identifier">query</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">delegates</span>[<span class="ruby-string">&quot;success&quot;</span>]
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">delegates</span>[<span class="ruby-string">&quot;delegates&quot;</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delegates_voters" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delegates_voters</span><span
+            class="method-args">(public_key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Gets voters of delegate. `GET /delegates/voters?publicKey=publicKey`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="delegates_voters-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 310</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delegates_voters</span> <span class="ruby-identifier">public_key</span>
+  <span class="ruby-identifier">params</span> = { <span class="ruby-value">:publicKey</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">public_key</span> }
+  <span class="ruby-identifier">voters</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;delegates/voters&quot;</span>, <span class="ruby-identifier">params</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">voters</span>[<span class="ruby-string">&quot;success&quot;</span>]
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">voters</span>[<span class="ruby-string">&quot;accounts&quot;</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-loader_status" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">loader_status</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the sync status of the blockchain. `GET /loader/status/sync`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="loader_status-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">loader_status</span>
+  <span class="ruby-identifier">status</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;loader/status&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-loader_status_ping" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">loader_status_ping</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the status of last received block. Returns true if block was received
+in the past 120 seconds. `GET /loader/status/ping`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="loader_status_ping-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">loader_status_ping</span>
+  <span class="ruby-identifier">ping</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;loader/status/ping&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-loader_status_sync" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">loader_status_sync</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the synchronization status of the client. `GET /loader/status`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="loader_status_sync-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">loader_status_sync</span>
+  <span class="ruby-identifier">sync</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;loader/status/sync&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-method_missing" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">method_missing</span><span
+            class="method-args">(name, *args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Handles unimplemented methods</p>
+          
+          
+
+          
+          <div class="method-source-code" id="method_missing-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 449</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">method_missing</span> <span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+  <span class="ruby-identifier">todo</span> <span class="ruby-node">&quot;#{self}::#{name} METHOD MISSING&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-multisignatures_accounts" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">multisignatures_accounts</span><span
+            class="method-args">(public_key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Gets a list of accounts that belong to a multi-signature account. `GET
+/multisignatures/accounts?publicKey=publicKey`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="multisignatures_accounts-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 430</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">multisignatures_accounts</span> <span class="ruby-identifier">public_key</span>
+  <span class="ruby-identifier">params</span> = { <span class="ruby-value">:publicKey</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">public_key</span> }
+  <span class="ruby-identifier">accounts</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;multisignatures/accounts&quot;</span>, <span class="ruby-identifier">params</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-multisignatures_pending" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">multisignatures_pending</span><span
+            class="method-args">(public_key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a list of multi-signature transactions that waiting for signature
+by publicKey. `GET /multisignatures/pending?publicKey=publicKey`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="multisignatures_pending-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 443</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">multisignatures_pending</span> <span class="ruby-identifier">public_key</span>
+  <span class="ruby-identifier">params</span> = { <span class="ruby-value">:publicKey</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">public_key</span> }
+  <span class="ruby-identifier">transactions</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;multisignatures/pending&quot;</span>, <span class="ruby-identifier">params</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-multisignatures_put" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">multisignatures_put</span><span
+            class="method-args">(secrets)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a multi-signature account. `PUT /multisignatures`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="multisignatures_put-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 424</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">multisignatures_put</span> <span class="ruby-identifier">secrets</span>
+  <span class="ruby-identifier">transaction</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_put</span> <span class="ruby-string">&quot;multisignatures&quot;</span>, <span class="ruby-identifier">secrets</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-multisignatures_sign" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">multisignatures_sign</span><span
+            class="method-args">(signature)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Signs a transaction that is awaiting signature. `POST
+/multisignatures/sign`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="multisignatures_sign-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 437</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">multisignatures_sign</span> <span class="ruby-identifier">signature</span>
+  <span class="ruby-identifier">transaction</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_post</span> <span class="ruby-string">&quot;multisignatures/sign&quot;</span>, <span class="ruby-identifier">signature</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-peers" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">peers</span><span
+            class="method-args">(filter = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Gets list of peers. `GET
+/peers?state=state&amp;os=os&amp;version=version&amp;limit=limit&amp;offset=offset&amp;orderBy=orderBy`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="peers-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 144</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">peers</span> <span class="ruby-identifier">filter</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">peers</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;peers&quot;</span>, <span class="ruby-identifier">filter</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">peers</span>[<span class="ruby-string">&quot;success&quot;</span>]
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">peers</span>[<span class="ruby-string">&quot;peers&quot;</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-peers_get" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">peers_get</span><span
+            class="method-args">(filter = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Gets peer by IP address and port. `GET /peers/get?ip=ip&amp;port=port`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="peers_get-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 155</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">peers_get</span> <span class="ruby-identifier">filter</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">peer</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;peers/get&quot;</span>, <span class="ruby-identifier">filter</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-peers_version" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">peers_version</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Gets version and build time. `GET /peers/version`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="peers_version-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 161</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">peers_version</span>
+  <span class="ruby-identifier">version</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;peers/version&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-signatures_fee" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">signatures_fee</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Gets the second signature status of an account. `GET /signatures/fee`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="signatures_fee-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 233</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">signatures_fee</span>
+  <span class="ruby-identifier">fee</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;signatures/fee&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-signatures_put" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">signatures_put</span><span
+            class="method-args">(secrets)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Add a second signature to an account. `PUT /signatures`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="signatures_put-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 239</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">signatures_put</span> <span class="ruby-identifier">secrets</span>
+  <span class="ruby-identifier">transaction</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_put</span> <span class="ruby-string">&quot;signatures&quot;</span>, <span class="ruby-identifier">secrets</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-transactions" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">transactions</span><span
+            class="method-args">(filter = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>List of transactions matched by provided parameters. `GET
+/transactions?blockId=blockId&amp;senderId=senderId&amp;recipientId=recipientId&amp;limit=limit&amp;offset=offset&amp;orderBy=field`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="transactions-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 94</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">transactions</span> <span class="ruby-identifier">filter</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">transactions</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;transactions&quot;</span>, <span class="ruby-identifier">filter</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">transactions</span>[<span class="ruby-string">&quot;success&quot;</span>]
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">transactions</span>[<span class="ruby-string">&quot;transactions&quot;</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-transactions_get_by_id" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">transactions_get_by_id</span><span
+            class="method-args">(id)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get transaction that matches the provided id. `GET /transactions/get?id=id`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="transactions_get_by_id-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">transactions_get_by_id</span> <span class="ruby-identifier">id</span>
+  <span class="ruby-identifier">params</span> = { <span class="ruby-value">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">id</span> }
+  <span class="ruby-identifier">transaction</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;transactions/get&quot;</span>, <span class="ruby-identifier">params</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-transactions_put" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">transactions_put</span><span
+            class="method-args">(transaction)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Send transaction to broadcast network. `PUT /transactions`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="transactions_put-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 105</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">transactions_put</span> <span class="ruby-identifier">transaction</span>
+  <span class="ruby-identifier">transaction</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_put</span> <span class="ruby-string">&quot;transactions&quot;</span>, <span class="ruby-identifier">transaction</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-transactions_queued" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">transactions_queued</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Gets a list of queued transactions. `GET /transactions/queued`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="transactions_queued-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 131</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">transactions_queued</span>
+  <span class="ruby-identifier">transaction</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;transactions/queued&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-transactions_queued_get_by_id" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">transactions_queued_get_by_id</span><span
+            class="method-args">(id)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get queued transaction that matches the provided id. `GET
+/transactions/queued/get?id=id`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="transactions_queued_get_by_id-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 137</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">transactions_queued_get_by_id</span> <span class="ruby-identifier">id</span>
+  <span class="ruby-identifier">params</span> = { <span class="ruby-value">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">id</span> }
+  <span class="ruby-identifier">transaction</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;transactions/queued/get&quot;</span>, <span class="ruby-identifier">params</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-transactions_unconfirmed" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">transactions_unconfirmed</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Gets a list of unconfirmed transactions. `GET /transactions/unconfirmed`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="transactions_unconfirmed-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">transactions_unconfirmed</span>
+  <span class="ruby-identifier">transaction</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;transactions/unconfirmed&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-transactions_unconfirmed_get_by_id" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">transactions_unconfirmed_get_by_id</span><span
+            class="method-args">(id)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get unconfirmed transaction that matches the provided id. `GET
+/transactions/unconfirmed/get?id=id`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="transactions_unconfirmed_get_by_id-source">
+            <pre><span class="ruby-comment"># File lib/lisk/legacy.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">transactions_unconfirmed_get_by_id</span> <span class="ruby-identifier">id</span>
+  <span class="ruby-identifier">params</span> = { <span class="ruby-value">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">id</span> }
+  <span class="ruby-identifier">transaction</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">query_get</span> <span class="ruby-string">&quot;transactions/unconfirmed/get&quot;</span>, <span class="ruby-identifier">params</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

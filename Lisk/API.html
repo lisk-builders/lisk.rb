@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Lisk::API - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Legacy
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-get_available_supply">#get_available_supply</a>
+    
+    <li ><a href="#method-i-get_banned_peers">#get_banned_peers</a>
+    
+    <li ><a href="#method-i-get_best_block">#get_best_block</a>
+    
+    <li ><a href="#method-i-get_block_reward">#get_block_reward</a>
+    
+    <li ><a href="#method-i-get_broadhash">#get_broadhash</a>
+    
+    <li ><a href="#method-i-get_chain_best_block">#get_chain_best_block</a>
+    
+    <li ><a href="#method-i-get_connected_peers">#get_connected_peers</a>
+    
+    <li ><a href="#method-i-get_disconnected_peers">#get_disconnected_peers</a>
+    
+    <li ><a href="#method-i-get_epoch">#get_epoch</a>
+    
+    <li ><a href="#method-i-get_milestone">#get_milestone</a>
+    
+    <li ><a href="#method-i-get_nethash">#get_nethash</a>
+    
+    <li ><a href="#method-i-get_peer_count">#get_peer_count</a>
+    
+    <li ><a href="#method-i-get_peers">#get_peers</a>
+    
+    <li ><a href="#method-i-get_remaining_blocks">#get_remaining_blocks</a>
+    
+    <li ><a href="#method-i-get_version">#get_version</a>
+    
+    <li ><a href="#method-i-get_version_build">#get_version_build</a>
+    
+    <li ><a href="#method-i-get_version_commit">#get_version_commit</a>
+    
+    <li ><a href="#method-i-is_chain_loaded-3F">#is_chain_loaded?</a>
+    
+    <li ><a href="#method-i-is_syncing-3F">#is_syncing?</a>
+    
+    <li ><a href="#method-i-method_missing">#method_missing</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Lisk::API">
+  <h1 id="class-Lisk::API" class="class">
+    class Lisk::API
+  </h1>
+
+  <section class="description">
+    
+<p>Helper functions to wrap raw legacy APIs into meaningul methods.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-get_available_supply" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_available_supply</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the available supply.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_available_supply-source">
+            <pre><span class="ruby-comment"># File lib/lisk/api.rb, line 141</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_available_supply</span>
+  <span class="ruby-identifier">blocks</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">blocks_get_supply</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">blocks</span>[<span class="ruby-string">&quot;success&quot;</span>]
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">blocks</span>[<span class="ruby-string">&quot;supply&quot;</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_banned_peers" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_banned_peers</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get an array of all banned peers.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_banned_peers-source">
+            <pre><span class="ruby-comment"># File lib/lisk/api.rb, line 182</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_banned_peers</span>
+  <span class="ruby-identifier">filter_by_state</span> = { <span class="ruby-value">:state</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> }
+  <span class="ruby-identifier">banned</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">peers</span> <span class="ruby-identifier">filter_by_state</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_best_block" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_best_block</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the height of the local best known block.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_best_block-source">
+            <pre><span class="ruby-comment"># File lib/lisk/api.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_best_block</span>
+  <span class="ruby-identifier">synced</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">loader_status_sync</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">synced</span>[<span class="ruby-string">&quot;success&quot;</span>]
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">synced</span>[<span class="ruby-string">&quot;height&quot;</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_block_reward" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_block_reward</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the current block reward.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_block_reward-source">
+            <pre><span class="ruby-comment"># File lib/lisk/api.rb, line 131</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_block_reward</span>
+  <span class="ruby-identifier">blocks</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">blocks_get_reward</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">blocks</span>[<span class="ruby-string">&quot;success&quot;</span>]
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">blocks</span>[<span class="ruby-string">&quot;reward&quot;</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_broadhash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_broadhash</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the broad hash.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_broadhash-source">
+            <pre><span class="ruby-comment"># File lib/lisk/api.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_broadhash</span>
+  <span class="ruby-identifier">blocks</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">blocks_get_status</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">blocks</span>[<span class="ruby-string">&quot;success&quot;</span>]
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">blocks</span>[<span class="ruby-string">&quot;broadhash&quot;</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_chain_best_block" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_chain_best_block</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the global best block in the network.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_chain_best_block-source">
+            <pre><span class="ruby-comment"># File lib/lisk/api.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_chain_best_block</span>
+  <span class="ruby-identifier">blocks</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">blocks_get_height</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">blocks</span>[<span class="ruby-string">&quot;success&quot;</span>]
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">blocks</span>[<span class="ruby-string">&quot;height&quot;</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_connected_peers" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_connected_peers</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get an array of all connected peers.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_connected_peers-source">
+            <pre><span class="ruby-comment"># File lib/lisk/api.rb, line 170</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_connected_peers</span>
+  <span class="ruby-identifier">filter_by_state</span> = { <span class="ruby-value">:state</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span> }
+  <span class="ruby-identifier">connected</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">peers</span> <span class="ruby-identifier">filter_by_state</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_disconnected_peers" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_disconnected_peers</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get an array of all disconnected peers.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_disconnected_peers-source">
+            <pre><span class="ruby-comment"># File lib/lisk/api.rb, line 176</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_disconnected_peers</span>
+  <span class="ruby-identifier">filter_by_state</span> = { <span class="ruby-value">:state</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span> }
+  <span class="ruby-identifier">disconnected</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">peers</span> <span class="ruby-identifier">filter_by_state</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_epoch" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_epoch</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the current epoch date.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_epoch-source">
+            <pre><span class="ruby-comment"># File lib/lisk/api.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_epoch</span>
+  <span class="ruby-identifier">blocks</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">blocks_get_status</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">blocks</span>[<span class="ruby-string">&quot;success&quot;</span>]
+    <span class="ruby-identifier">epoch</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">parse</span> <span class="ruby-identifier">blocks</span>[<span class="ruby-string">&quot;epoch&quot;</span>]
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">epoch</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_milestone" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_milestone</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the current milestone.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_milestone-source">
+            <pre><span class="ruby-comment"># File lib/lisk/api.rb, line 121</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_milestone</span>
+  <span class="ruby-identifier">blocks</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">blocks_get_milestone</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">blocks</span>[<span class="ruby-string">&quot;success&quot;</span>]
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">blocks</span>[<span class="ruby-string">&quot;milestone&quot;</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_nethash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_nethash</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the net hash.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_nethash-source">
+            <pre><span class="ruby-comment"># File lib/lisk/api.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_nethash</span>
+  <span class="ruby-identifier">blocks</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">blocks_get_nethash</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">blocks</span>[<span class="ruby-string">&quot;success&quot;</span>]
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">blocks</span>[<span class="ruby-string">&quot;nethash&quot;</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_peer_count" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_peer_count</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the number of all known peers.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_peer_count-source">
+            <pre><span class="ruby-comment"># File lib/lisk/api.rb, line 160</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_peer_count</span>
+  <span class="ruby-identifier">peers</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">get_peers</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">peers</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">count</span> = <span class="ruby-identifier">peers</span>.<span class="ruby-identifier">count</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">count</span> = <span class="ruby-value">0</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_peers" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_peers</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get an array of all known peers.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_peers-source">
+            <pre><span class="ruby-comment"># File lib/lisk/api.rb, line 155</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_peers</span>
+  <span class="ruby-identifier">peers</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">peers</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_remaining_blocks" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_remaining_blocks</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the number of remaining local sync blocks.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_remaining_blocks-source">
+            <pre><span class="ruby-comment"># File lib/lisk/api.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_remaining_blocks</span>
+  <span class="ruby-identifier">synced</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">loader_status_sync</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">synced</span>[<span class="ruby-string">&quot;success&quot;</span>]
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">synced</span>[<span class="ruby-string">&quot;blocks&quot;</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_version" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_version</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the <a href="../Lisk.html">Lisk</a> node version string.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_version-source">
+            <pre><span class="ruby-comment"># File lib/lisk/api.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_version</span>
+  <span class="ruby-identifier">version</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">peers_version</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">version</span>[<span class="ruby-string">&quot;success&quot;</span>]
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">version</span>[<span class="ruby-string">&quot;version&quot;</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_version_build" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_version_build</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the <a href="../Lisk.html">Lisk</a> node version build date.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_version_build-source">
+            <pre><span class="ruby-comment"># File lib/lisk/api.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_version_build</span>
+  <span class="ruby-identifier">version</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">peers_version</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">version</span>[<span class="ruby-string">&quot;success&quot;</span>]
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">version</span>[<span class="ruby-string">&quot;build&quot;</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_version_commit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_version_commit</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the <a href="../Lisk.html">Lisk</a> node version commit.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_version_commit-source">
+            <pre><span class="ruby-comment"># File lib/lisk/api.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_version_commit</span>
+  <span class="ruby-identifier">version</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">peers_version</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">version</span>[<span class="ruby-string">&quot;success&quot;</span>]
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">version</span>[<span class="ruby-string">&quot;commit&quot;</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-is_chain_loaded-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_chain_loaded?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns true if chain is loaded.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="is_chain_loaded-3F-source">
+            <pre><span class="ruby-comment"># File lib/lisk/api.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">is_chain_loaded?</span>
+  <span class="ruby-identifier">loaded</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">loader_status</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">loaded</span>[<span class="ruby-string">&quot;success&quot;</span>]
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">loaded</span>[<span class="ruby-string">&quot;loaded&quot;</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-is_syncing-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_syncing?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns true if chain is syncing.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="is_syncing-3F-source">
+            <pre><span class="ruby-comment"># File lib/lisk/api.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">is_syncing?</span>
+  <span class="ruby-identifier">synced</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">loader_status_sync</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">synced</span>[<span class="ruby-string">&quot;success&quot;</span>]
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">synced</span>[<span class="ruby-string">&quot;syncing&quot;</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-method_missing" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">method_missing</span><span
+            class="method-args">(name, *args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Handles unimplemented methods</p>
+          
+          
+
+          
+          <div class="method-source-code" id="method_missing-source">
+            <pre><span class="ruby-comment"># File lib/lisk/api.rb, line 188</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">method_missing</span> <span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+  <span class="ruby-identifier">todo</span> <span class="ruby-node">&quot;#{self}::#{name} METHOD MISSING&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
