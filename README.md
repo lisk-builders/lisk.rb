@@ -44,49 +44,55 @@ require 'lisk'
 To get started, point the lisk.rb to any Lisk-API endpoint. By default, lisk.rb assumes a running Lisk testnet node on localhost port 7000.
 
 ```ruby
-client = Lisk::Client.new "127.0.0.1", 7000
-```
-
-Get access to the Lisk-0.8.0 legacy API (see [#4](https://github.com/4fryn/lisk.rb/issues/4)).
-
-```ruby
-legacy_api = Lisk::Legacy.new client
+node = Lisk::Client.new "127.0.0.1", 7000
 ```
 
 For convenience, check if the Lisk node is connected, fully synchronized, and active by pinging it.
 
 ```ruby
-if legacy_api.loader_status_ping
+if node.is_alive?
   # only do stuff if client is connected, fully synchronized, and active ...
 end
+```
+
+Get access to the Lisk-0.8.0 legacy API (see [#4](https://github.com/4fryn/lisk.rb/issues/4)).
+
+```ruby
+lisk = Lisk::API.new node
 ```
 
 Get the version of the connected Lisk node.
 
 ```ruby
-version = legacy_api.peers_version
-p "Lisk node version #{version["version"]} build #{version["build"]}..."
+version = lisk.get_version
+build = lisk.get_version_build
+p "Lisk node version #{version} build #{build}..."
 ```
 
 Get the status of the connected Lisk node.
 
 ```ruby
-status = legacy_api.loader_status
-p "Lisk node is connected: #{status["success"]}... Blockchain loaded: #{status["loaded"]}..."
+connected = node.is_alive?
+loaded = lisk.is_chain_loaded?
+p "Lisk node is connected: #{connected}... Blockchain loaded: #{loaded}..."
 ```
 
 Figure out if the node is still synchronizing.
 
 ```ruby
-syncing = legacy_api.loader_status_sync
-p "Lisk node is syncing: #{syncing["syncing"]}... #{syncing["blocks"]} remaining blocks to latest block #{syncing["height"]}..."
+syncing = lisk.is_syncing?
+remaining = lisk.get_remaining_blocks
+best = lisk.get_chain_best_block
+p "Lisk node is syncing: #{syncing}... #{remaining} remaining blocks to latest block #{best}..."
 ```
 
 Get some global Lisk blockchain stats.
 
 ```ruby
-chain = legacy_api.blocks_get_status
-p "Lisk chain latest block: #{chain["height"]}... total supply: #{chain["supply"] / 1e8}... block reward: #{chain["reward"] / 1e8}"
+height = lisk.get_best_block
+reward = lisk.get_block_reward / 1e8
+supply = lisk.get_available_supply / 1e8
+p "Lisk chain latest block: #{height}... total supply: #{supply}... block reward: #{reward}"
 ```
 
 See `examples/*.rb` for more examples implementing the Lisk API.
