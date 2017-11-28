@@ -97,6 +97,10 @@ p "Lisk chain latest block: #{height}... total supply: #{supply}... block reward
 
 See `examples/*.rb` for more examples implementing the Lisk API.
 
+## API Documentation
+
+Is available on Gh-Pages: https://lisk-builders.github.io/lisk.rb/ (work in progress [#2](https://github.com/lisk-builders/lisk.rb/issues/2)).
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
