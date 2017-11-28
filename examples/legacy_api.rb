@@ -115,7 +115,7 @@ _delegate_query = {
   :orderBy => "producedblocks:desc"
 }
 
-# Testing legacy API against https://github.com/4fryn/lisk.rb/issues/4
+# Testing legacy API against https://github.com/lisk-builders/lisk.rb/issues/4
 account = legacy_api.accounts_open _secret
 p account
 balance = legacy_api.accounts_get_balance _address

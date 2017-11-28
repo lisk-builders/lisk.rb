@@ -10,8 +10,8 @@ This is very early work-in-progress. The idea is to publish this `gem` as soon a
 
 API Implemententation Status:
 
-- `Lisk::Legacy` 48/62 APIs for Lisk Core 0.8.0+ ([#4](https://github.com/4fryn/lisk.rb/issues/4))
-- `Lisk::Raw` 0/34 APIs for Lisk Core 1.0.0+ ([#1](https://github.com/4fryn/lisk.rb/issues/1))
+- `Lisk::Legacy` 48/62 APIs for Lisk Core 0.8.0+ ([#4](https://github.com/lisk-builders/lisk.rb/issues/4))
+- `Lisk::Raw` 0/34 APIs for Lisk Core 1.0.0+ ([#1](https://github.com/lisk-builders/lisk.rb/issues/1))
 
 ## Installation
 
@@ -55,7 +55,7 @@ if node.is_alive?
 end
 ```
 
-Get access to the Lisk-0.8.0 legacy API (see [#4](https://github.com/4fryn/lisk.rb/issues/4)).
+Get access to the Lisk-0.8.0 legacy API (see [#4](https://github.com/lisk-builders/lisk.rb/issues/4)).
 
 ```ruby
 lisk = Lisk::API.new node
@@ -105,7 +105,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/4fryn/lisk.rb. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/lisk-builders/lisk.rb. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
@@ -113,4 +113,4 @@ The gem is available as open source under the terms of the [MIT License](http://
 
 ## Code of Conduct
 
-Everyone interacting in the Lisk.rb project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/4fryn/lisk.rb/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Lisk.rb project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/lisk-builders/lisk.rb/blob/master/CODE_OF_CONDUCT.md).

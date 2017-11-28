@@ -10,7 +10,7 @@ Gem::Specification.new do |lisk|
   lisk.email         = ["ruby@4fry.net"]
 
   lisk.description   = 'A Ruby wrapper for the Lisk blockchain platform API.'
-  lisk.homepage      = 'https://github.com/4fryn/lisk.rb'
+  lisk.homepage      = 'https://github.com/lisk-builders/lisk.rb'
   lisk.summary       = 'Lisk API Ruby wrapper.'
   lisk.license       = "MIT"
 

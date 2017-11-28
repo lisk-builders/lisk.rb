@@ -17,9 +17,9 @@ module Lisk
       end
     end
 
-    #############################################
-    # https://github.com/4fryn/lisk.rb/issues/1 #
-    #############################################
+    #####################################################
+    # https://github.com/lisk-builders/lisk.rb/issues/1 #
+    #####################################################
 
     # The "accounts" API
     def accounts

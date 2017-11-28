@@ -345,9 +345,9 @@ module Lisk
       forgers = @client.query_get "delegates/getNextForgers", params
     end
 
-    #############################################
-    # https://github.com/4fryn/lisk.rb/issues/4 #
-    #############################################
+    #####################################################
+    # https://github.com/lisk-builders/lisk.rb/issues/4 #
+    #####################################################
 
     # `PUT /dapps`
     def dapps_put
