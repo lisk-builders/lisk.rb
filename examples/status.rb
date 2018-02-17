@@ -11,11 +11,11 @@ node = node.configure "127.0.0.1", 7000
 # Same as above, just in one line, let's stick to test network for now.
 node = Lisk::Client.new "127.0.0.1", 7000
 
-# Only proceed if the client is connected, active, and fully synchronized.
-if node.is_alive?
+# Lisk tools wraps the raw API in meaningful methods.
+api = Lisk::API.new node
 
-  # Lisk tools wraps the raw API in meaningful methods.
-  api = Lisk::API.new node
+# Only proceed if the client is connected, active, and fully synchronized.
+if node.is_alive? or api.is_syncing?
 
   # Lisk version API example.
   version = api.get_version
