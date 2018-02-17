@@ -147,9 +147,65 @@ module Lisk
       end
     end
 
+    # Get fees for sending transactions
+    def get_fee_send
+      fee = self.blocks_get_fees
+      if fee["success"]
+        return fee["fees"]["send"]
+      else
+        return nil
+      end
+    end
 
-#{}"fee"=>10000000
+    # Get fees for voting
+    def get_fee_vote
+      fee = self.blocks_get_fees
+      if fee["success"]
+        return fee["fees"]["vote"]
+      else
+        return nil
+      end
+    end
 
+    # Get fees for second signatures
+    def get_fee_secondsignature
+      fee = self.blocks_get_fees
+      if fee["success"]
+        return fee["fees"]["secondsignature"]
+      else
+        return nil
+      end
+    end
+
+    # Get fees for delegate registration
+    def get_fee_delegate
+      fee = self.blocks_get_fees
+      if fee["success"]
+        return fee["fees"]["delegate"]
+      else
+        return nil
+      end
+    end
+
+    # Get fees for multisignature registration
+    def get_fee_multisignature
+      fee = self.blocks_get_fees
+      if fee["success"]
+        return fee["fees"]["multisignature"]
+      else
+        return nil
+      end
+    end
+
+    # Get fees for dapps registration
+    def get_fee_dapp
+      fee = self.blocks_get_fees
+      if fee["success"]
+        return fee["fees"]["dapp"]
+      else
+        return nil
+      end
+    end
 
     # Get an array of all known peers.
     def get_peers
