@@ -76,6 +76,22 @@ module Lisk
       end
     end
 
+    # Get the number of remaining local sync blocks.
+    def get_block id
+      block = self.blocks_get_by_id id
+      if block["success"]
+        return block["block"]
+      else
+        return nil
+      end
+    end
+
+    # Get block ping, returns true if block received in 120 seconds.
+    def get_block_health
+      healthy = self.loader_status_ping
+      return healthy["success"]
+    end
+
     # Get the global best block in the network.
     def get_chain_best_block
       blocks = self.blocks_get_height

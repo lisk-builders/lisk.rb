@@ -419,6 +419,8 @@ module Lisk
       todo "#{self}::#{__method__} UNIMPLEMENTED"
     end
 
+    #####################################################
+
     # Create a multi-signature account.
     # `PUT /multisignatures`
     def multisignatures_put secrets
