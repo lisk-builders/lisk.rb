@@ -14,7 +14,7 @@ node = Lisk::Client.new "127.0.0.1", 7000
 # Lisk tools wraps the raw API in meaningful methods.
 api = Lisk::API.new node
 
-# Only proceed if the client is connected, active, and fully synchronized.
+# Only proceed if the client is connected.
 if node.is_alive? or api.is_syncing?
 
   # Lisk version API example.
@@ -48,5 +48,5 @@ if node.is_alive? or api.is_syncing?
   p "Lisk chain latest block: #{chain_height}... total supply: #{total_supply / 1e8}... block reward: #{block_reward / 1e8}"
 
 else
-  p 'Lisk node disconnected, inactive, or not fully synchronized ...'
+  p 'Lisk node disconnected ...'
 end
